@@ -1,4 +1,4 @@
-import type { Config } from 'tailwindcss'
+import type { Config } from 'tailwindcss';
 
 const config: Config = {
   content: [
@@ -7,14 +7,35 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    fontFamily: {
+      montserrat: 'var(--montserrat-font)',
+      poppins: 'var(--poppins-font)',
+      'dm-snans': 'var(--dm-snans-font)',
+    },
+    minHeight: {
+      'screen-2/3': '60vh',
+    },
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      animation: {
+        rotate: 'rotate 10s linear infinite',
+      },
+      keyframes: {
+        rotate: {
+          '0%': { rotate: '0deg' },
+          '50%': { scale: '0.7' },
+          '100%': { rotate: '360deg' },
+        },
+      },
+      colors: {
+        brand: '#AC58F5',
+        darkest: '#0F172A',
+        dark: '#222C42',
+        mid: '#64748B',
+        light: '#B1BED1',
+        lightest: '#F8FBFE',
       },
     },
   },
   plugins: [],
-}
-export default config
+};
+export default config;
