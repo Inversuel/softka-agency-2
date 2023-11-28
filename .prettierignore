@@ -1,0 +1,8 @@
+package.json
+src/temp/**
+.next/**
+.generated/**
+tsconfig.json
+scjssconfig.json
+README.md
+azure-pipelines.yml
