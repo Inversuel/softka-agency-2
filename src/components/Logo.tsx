@@ -12,9 +12,11 @@ const Logo = ({ className }: LogoProps): JSX.Element => {
   return (
     <div className={mergeClass}>
       <Image width={40} height={40} src="/img/logo.png" alt="" />
-      <h6 className="font-montserrat text-2xl hover:underline hover:scale-110 hover:text-brand  leading-5 font-bold transition ease-in-out duration-500">
-        Softly
-      </h6>
+      <a href="/">
+        <h6 className="font-montserrat text-2xl hover:underline hover:scale-110 hover:text-brand  leading-5 font-bold transition ease-in-out duration-500">
+          Softly
+        </h6>
+      </a>
     </div>
   );
 };

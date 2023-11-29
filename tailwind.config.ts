@@ -34,6 +34,9 @@ const config: Config = {
         light: '#B1BED1',
         lightest: '#F8FBFE',
       },
+      backgroundImage: {
+        'fade-opacity-gradient': 'radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
+      },
     },
   },
   plugins: [],

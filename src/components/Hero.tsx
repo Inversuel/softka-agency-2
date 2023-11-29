@@ -12,6 +12,8 @@ const Hero = (): JSX.Element => {
   const heroButton = useRef(null);
   const heroImage = useRef<HTMLImageElement | null>(null);
   const scopeRef = useRef<HTMLDivElement | null>(null);
+  const blobRef = useRef<HTMLDivElement | null>(null);
+  const blob2Ref = useRef<HTMLDivElement | null>(null);
 
   const animation = gsap.to(heroImage.current, {
     scale: 1.1,
@@ -44,6 +46,21 @@ const Hero = (): JSX.Element => {
         duration: 0.7,
         opacity: 1,
       });
+      gsap.to(blobRef.current, {
+        delay: 0.8,
+        duration: 0.7,
+        opacity: 1,
+      });
+      gsap.to(blob2Ref.current, {
+        delay: 0.8,
+        duration: 0.7,
+        opacity: 1,
+      });
+      gsap.to(heroImage.current, {
+        delay: 0.8,
+        duration: 0.7,
+        opacity: 1,
+      });
     }, scopeRef);
 
     return () => ctx.revert();
@@ -51,14 +68,12 @@ const Hero = (): JSX.Element => {
   return (
     <section className="relative" ref={scopeRef}>
       <div
-        data-scroll
-        data-scroll-speed="-0.6"
-        className="rounded-full w-[600px] h-[600px] bg-brand absolute -top-28 -left-28 blur-[300px]"
+        ref={blobRef}
+        className="rounded-full w-[600px] h-[600px] bg-brand absolute -top-28 -left-28 blur-[300px] opacity-0"
       />
       <div
-        data-scroll
-        data-scroll-speed="-0.8"
-        className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px]"
+        ref={blob2Ref}
+        className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0"
       />
       <main className="h-screen z-10 grid grid-cols-3">
         <div className="p-24 z-10 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
@@ -90,6 +105,7 @@ const Hero = (): JSX.Element => {
             src="/img/Macbook2.png"
             width={2200}
             height={1750}
+            className="opacity-0"
             alt="Macbook with work"
           />
         </div>

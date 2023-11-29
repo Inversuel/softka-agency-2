@@ -30,7 +30,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     >
       <body className=" overflow-x-hidden">
         <header className="px-24 py-12 flex justify-between align-middle sticky z-[1]">
-          <Logo className="self-start" />
+          <Logo className="self-start cursor-pointer" />
           <nav className="flex gap-7 align-middle items-center">
             <KMLink href="/">Home</KMLink>
             <KMLink href="/projects">Projects</KMLink>

@@ -23,12 +23,12 @@ export default function Home(): JSX.Element {
     <main className="relative flex min-h-screen flex-col">
       <Hero />
       <Tech />
-      <div className="relative h-screen w-fit">
+      <div className="relative w-fit">
         <ProjectsList />
-        <section className="h-screen w-screen block bg-red-500">
-          <h1>Why Us</h1>
-        </section>
       </div>
+      <section className="h-screen w-screen block bg-red-500">
+        <h1>Why Us</h1>
+      </section>
     </main>
   );
 }
