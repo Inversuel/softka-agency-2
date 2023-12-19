@@ -31,12 +31,30 @@ body {
   scrollbar-width: none;  
 } 
 */
-
-.transform-3d {
-  transform-style: preserve-3d;
-}
-
-.cm-overlay {
-  clip-path: circle(20px at var(--x, 50%) var(--y, 50%));
-  transition: clip-path 100ms;
+@layer utilities {
+  .transform-3d {
+    transform-style: preserve-3d;
+  }
+  
+  .cm-overlay {
+    clip-path: circle(20px at var(--x, 50%) var(--y, 50%));
+    transition: clip-path 100ms;
+  }
+  .cm-clip-path-left-0 {
+    clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+  }
+  .cm-clip-path-circle-0 {
+    /* .overlay {
+      --clip:0%;
+     clip-path: circle(var(--clip));
+   }
+    */
+    --x: 100%;
+    --y: 0%;
+    --clip:0%;
+    clip-path: circle(var(--clip) at var(--x, 50%) var(--y, 50%));
+  }
+  .cm-clip-path-full {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
 }

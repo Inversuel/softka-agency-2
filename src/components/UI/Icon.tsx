@@ -1,9 +1,8 @@
-import { ImageField, NextImage } from "@sitecore-jss/sitecore-jss-nextjs";
-import React, { AriaAttributes, useMemo } from "react";
-import { twMerge } from "tailwind-merge";
+import React, { AriaAttributes, useMemo } from 'react';
+import { twMerge } from 'tailwind-merge';
 
 const iconMap = {
-  
+ 
 };
 
 export type IconType = keyof typeof iconMap;
@@ -19,30 +18,24 @@ export interface IconProps extends AriaAttributes {
   alt?: string;
   href?: string;
   printable?: boolean;
-}
-
-interface ScIconProps extends Omit<IconProps, "type"> {
-  field: ImageField;
+  id?: string;
 }
 
 export const getIconSrc = (type: IconType): string => iconMap[type];
 
 export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
-  (
-    { type, size, width, className, alt = "", quantity, printable, ...rest },
-    ref
-  ) => {
+  ({ type, size, width, className, alt = '', id, quantity, printable, ...rest }, ref) => {
     const _size = size ?? 24;
     const _width = width ?? _size;
     const iconSrc = getIconSrc(type);
     const Container: keyof JSX.IntrinsicElements = rest?.href
-      ? "a"
+      ? 'a'
       : rest?.onClick
-      ? "button"
-      : "span";
+      ? 'button'
+      : 'span';
     const containerProps = useMemo(() => {
-      if (Container === "button") {
-        const buttonProps = { type: "button" };
+      if (Container === 'button') {
+        const buttonProps = { type: 'button' };
         return buttonProps;
       }
 
@@ -58,12 +51,12 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
         {...rest}
         {...containerProps}
         className={twMerge(
-          "leading-none flex-none relative",
-          printable ? "" : "hidden-pdf",
+          'leading-none flex-none relative',
           className
         )}
       >
         <img
+          data-testid={id}
           className="h-full"
           ref={ref}
           src={iconSrc}
@@ -71,7 +64,7 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
           height={_size}
           alt={alt}
         />
-        {typeof quantity === "number" && quantity > 0 ? (
+        {typeof quantity === 'number' && quantity > 0 ? (
           <span className="flex justify-center items-center absolute bg-button-cta-yellow w-[24px] h-[24px] rounded-full text-center top-[-15px] right-[-12px] text-sm">
             {quantity}
           </span>
@@ -80,4 +73,3 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
     );
   }
 );
-Icon.displayName = "Icon";

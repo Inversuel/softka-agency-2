@@ -1,0 +1,25 @@
+import React from 'react';
+import { twMerge } from 'tailwind-merge';
+
+interface TagsProps {
+  array: string[];
+  containerClassName?: string;
+  pClassName?: string;
+}
+
+const Tags = ({ array, containerClassName, pClassName }: TagsProps) => {
+  const containerClass = twMerge('flex gap-3 flex-wrap w-full', containerClassName);
+  const pClass = twMerge(
+    'text-sm lg:text-lg xl:text-xl font-semibold text-lightest bg-dark rounded-3xl py-1 px-4',
+    pClassName
+  );
+  return (
+    <div className={containerClass}>
+      {array.map((tech) => (
+        <p className={pClass}>{tech}</p>
+      ))}
+    </div>
+  );
+};
+
+export default Tags;

@@ -1,11 +1,16 @@
 'use client';
 
+import Contact from '@/components/Contact';
 import Hero from '@/components/Hero';
+import Nav from '@/components/Navigation/Nav';
+import Services from '@/components/Services';
 import Tech from '@/components/Tech';
-import { ProjectsList } from '@/components/projects/ProjectComponent';
+import WhyUs from '@/components/WhyUs';
+import { ProjectsList } from '@/components/projects/ProjectsDektop/ProjectComponent';
+import { ProjectsListMobile } from '@/components/projects/ProjectsMobile/ProjectsListMobile';
+import { useEffect } from 'react';
 
 // import type { Metadata } from 'next';
-import { useEffect } from 'react';
 
 // export const metadata: Metadata = {
 //   title: 'Softka | Home',
@@ -13,22 +18,29 @@ import { useEffect } from 'react';
 // };
 export default function Home(): JSX.Element {
   useEffect(() => {
-    (async () => {
-      const LocomotiveScroll = (await import('locomotive-scroll')).default;
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      const locomotiveScroll = new LocomotiveScroll();
-    })();
+    if (!document) return;
+    document.querySelectorAll('img').forEach((img) => {
+      img.style.webkitUserSelect = 'none';
+      img.style.userSelect = 'none';
+      img.style.webkitTouchCallout = 'none';
+      img.addEventListener('contextmenu', (evt) => {
+        evt.preventDefault();
+        return false;
+      });
+    });
   }, []);
   return (
-    <main className="relative flex min-h-screen flex-col">
+    <main id="main" className="relative flex min-h-screen flex-col overflow-x-hidden">
+      <Nav />
       <Hero />
-      <Tech />
-      <div className="relative w-fit">
+      <Services />
+      <div className="relative w-fit lg:block hidden">
         <ProjectsList />
       </div>
-      <section className="h-screen w-screen block bg-red-500">
-        <h1>Why Us</h1>
-      </section>
+      <ProjectsListMobile />
+      <WhyUs />
+      <Tech />
+      {/* <Contact /> */}
     </main>
   );
 }

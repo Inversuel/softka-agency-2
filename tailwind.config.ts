@@ -12,12 +12,13 @@ const config: Config = {
       poppins: 'var(--poppins-font)',
       'dm-snans': 'var(--dm-snans-font)',
     },
-    minHeight: {
-      'screen-2/3': '60vh',
-    },
     extend: {
       animation: {
         rotate: 'rotate 10s linear infinite',
+      },
+      minHeight: {
+        'screen-2/3': '60vh',
+        'screen-8/9': '85vh',
       },
       keyframes: {
         rotate: {

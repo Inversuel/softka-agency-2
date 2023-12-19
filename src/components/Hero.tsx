@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useLayoutEffect, useRef } from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { FaArrowRight } from 'react-icons/fa';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollIndicator from './ScrollIndicator';
+import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 
 const Hero = (): JSX.Element => {
   const heroText = useRef(null);
@@ -14,55 +15,64 @@ const Hero = (): JSX.Element => {
   const scopeRef = useRef<HTMLDivElement | null>(null);
   const blobRef = useRef<HTMLDivElement | null>(null);
   const blob2Ref = useRef<HTMLDivElement | null>(null);
+  const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
 
-  const animation = gsap.to(heroImage.current, {
-    scale: 1.1,
-    duration: 0.3,
-    rotate: 5,
-  });
-
-  useLayoutEffect(() => {
-    if (!heroImage.current) return;
-    heroImage.current.addEventListener('mouseenter', () => animation.play());
-    heroImage.current.addEventListener('mouseleave', () => animation.reverse());
-  }, [animation]);
-
-  useLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
+  useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(heroText.current, {
-        delay: 0.5,
-        duration: 0.7,
-        opacity: 1,
-      });
-      gsap.to(heroSubText.current, {
-        delay: 0.7,
-        duration: 0.7,
-        opacity: 1,
-      });
-      gsap.to(heroButton.current, {
-        delay: 0.5,
-        duration: 0.7,
-        opacity: 1,
-      });
-      gsap.to(blobRef.current, {
-        delay: 0.8,
-        duration: 0.7,
-        opacity: 1,
-      });
-      gsap.to(blob2Ref.current, {
-        delay: 0.8,
-        duration: 0.7,
-        opacity: 1,
-      });
-      gsap.to(heroImage.current, {
-        delay: 0.8,
+      const tl = gsap.timeline();
+      tl.to(
+        heroText.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        0.2
+      );
+      tl.to(
+        heroSubText.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        0.3
+      );
+      tl.to(
+        heroButton.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        0.4
+      );
+      tl.to(
+        blobRef.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        1
+      );
+      tl.to(
+        blob2Ref.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        1
+      );
+      tl.to(
+        heroImage.current,
+        {
+          duration: 0.7,
+          opacity: 1,
+        },
+        0.5
+      );
+      tl.to(scrollIndicatorRef.current, {
         duration: 0.7,
         opacity: 1,
       });
     }, scopeRef);
-
     return () => ctx.revert();
   }, []);
   return (
@@ -73,19 +83,19 @@ const Hero = (): JSX.Element => {
       />
       <div
         ref={blob2Ref}
-        className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0"
+        className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0 hidden lg:block"
       />
-      <main className="h-screen z-10 grid grid-cols-3">
-        <div className="p-24 z-10 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
+      <main className="min-h-screen flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
+        <div className="lg:p-24 md:p-12 p-4 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
           <h1
             ref={heroText}
-            className="font-montserrat font-bold text-6xl text-lightest max-w-lg opacity-0"
+            className="font-montserrat font-bold lg:text-6xl text-4xl text-lightest max-w-lg opacity-0"
           >
             Soft Transition To The WEB
           </h1>
           <h6
             ref={heroSubText}
-            className="font-montserrat text-2xl text-light max-w-2xl z-10 opacity-0"
+            className="font-montserrat lg:text-2xl text-xl text-light max-w-2xl opacity-0"
           >
             Transforming Digital Dreams into Seamless Realities
             <span className="text-brand"> Your</span> Vision,
@@ -94,24 +104,29 @@ const Hero = (): JSX.Element => {
           </h6>
           <button
             ref={heroButton}
-            className="py-6 px-11 bg-brand rounded-3xl text-2xl font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-150 hover:scale-105 hover:shadow-xl transition duration-500"
+            className="relative lg:py-6 py-4 lg:px-11 px-7 bg-brand rounded-3xl lg:text-2xl text-lg font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-110 hover:scale-105 hover:shadow-xl transition duration-500"
           >
             Get Started <FaArrowRight />
           </button>
         </div>
-        <div data-scroll data-speed-scroll="0.5" className="col-start-2 col-end-4 row-start-1">
+        <div className="col-start-2 col-end-4 row-start-1">
           <Image
             ref={heroImage}
             src="/img/Macbook2.png"
             width={2200}
             height={1750}
+            priority
             className="opacity-0"
             alt="Macbook with work"
           />
         </div>
+        <ScrollIndicator />
       </main>
     </section>
   );
 };
 
 export default Hero;
+function useState(arg0: boolean): [any, any] {
+  throw new Error('Function not implemented.');
+}

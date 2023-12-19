@@ -4,6 +4,7 @@ import { Container } from './Container';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 import gsap from 'gsap';
 import Image from 'next/image';
+import Headline from './UI/Headline';
 
 const Tech = (): JSX.Element => {
   const main = useRef<HTMLDivElement | null>(null);
@@ -56,10 +57,8 @@ const Tech = (): JSX.Element => {
   }, [main.current]);
 
   return (
-    <Container className="relative second-section w-screen h-[50vh] flex flex-col gap-10">
-      <h2 className="font-montserrat mb-4 text-5xl font-bold opacity-25">
-        Technologies We Work With
-      </h2>
+    <Container className="relative second-section lg:p-24 px-4 md:px-12 py-10 w-screen min-h-screen-2/3 flex flex-col gap-10">
+      <Headline className="z-10 lg:max-w-[60%]">Technologies We Work With</Headline>
       <div ref={main} className=" relative -left-32 my-7 bg-fade-opacity-gradient">
         <div className="relative -left-32 lg:transform-gpu transform-none">
           {logos.map((logo, i) => (
