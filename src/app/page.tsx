@@ -22,7 +22,6 @@ export default function Home(): JSX.Element {
     document.querySelectorAll('img').forEach((img) => {
       img.style.webkitUserSelect = 'none';
       img.style.userSelect = 'none';
-      img.style.webkitTouchCallout = 'none';
       img.addEventListener('contextmenu', (evt) => {
         evt.preventDefault();
         return false;

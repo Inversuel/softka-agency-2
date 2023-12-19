@@ -11,9 +11,9 @@ const WhyUs = (): JSX.Element => {
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
-      const balls = gsap.utils.toArray('.km-ball').slice(0, -1);
-      const textes = gsap.utils.toArray('.km-title-text');
-      const descriptions = gsap.utils.toArray('.km-title-description');
+      const balls = gsap.utils.toArray<HTMLDivElement>('.km-ball').slice(0, -1);
+      const textes = gsap.utils.toArray<HTMLDivElement>('.km-title-text');
+      const descriptions = gsap.utils.toArray<HTMLDivElement>('.km-title-description');
 
       balls.forEach((ball) => {
         gsap.to(ball, {

@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
 import LinkButton from '../../UI/LinkButton';
@@ -6,6 +6,7 @@ import gsap from 'gsap';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
+import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 
 interface FreeDayProjectProps {
   triggerTimeline?: gsap.core.Tween;
@@ -18,7 +19,8 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
     'React,React Query, React Hook Form, NextJS, Material UI, Typescript, RWD, Figma, Firebase'.split(
       ','
     );
-  useEffect(() => {
+  useIsomorphicLayoutEffect(() => {
+    if(!imageRef.current || !textRef.current) return;
     VanillaTilt.init(imageRef.current, {
       max: 15,
       perspective: 1400,
@@ -76,7 +78,7 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
             </div>
             <div className="flex flex-col gap-3">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
-              <Tags array={TagsArray} containerClassName='z-10' />
+              <Tags array={TagsArray} containerClassName="z-10" />
             </div>
           </div>
         </div>
