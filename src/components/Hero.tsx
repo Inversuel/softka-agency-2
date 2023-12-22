@@ -89,13 +89,13 @@ const Hero = (): JSX.Element => {
         <div className="lg:p-24 md:p-12 p-4 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
           <h1
             ref={heroText}
-            className="font-montserrat font-bold lg:text-6xl text-4xl text-lightest max-w-lg opacity-0"
+            className="font-montserrat font-bold lg:text-6xl text-4xl text-darkest dark:text-lightest max-w-lg opacity-0"
           >
             Soft Transition To The WEB
           </h1>
           <h6
             ref={heroSubText}
-            className="font-montserrat lg:text-2xl text-xl text-light max-w-2xl opacity-0"
+            className="font-montserrat lg:text-2xl text-xl text-dark dark:text-light max-w-2xl opacity-0"
           >
             Transforming Digital Dreams into Seamless Realities
             <span className="text-brand"> Your</span> Vision,
@@ -127,6 +127,3 @@ const Hero = (): JSX.Element => {
 };
 
 export default Hero;
-function useState(arg0: boolean): [any, any] {
-  throw new Error('Function not implemented.');
-}

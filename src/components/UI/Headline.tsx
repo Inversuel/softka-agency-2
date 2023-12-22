@@ -10,7 +10,7 @@ interface Props {
 
 const Headline = ({ children, className }: Props): JSX.Element => {
   const textRef = React.useRef(null);
-  const twMergeClass = twMerge('font-montserrat md:text-5xl lg:text-7xl text-3xl font-bold opacity-25 mb-28', className);
+  const twMergeClass = twMerge('font-montserrat md:text-5xl lg:text-7xl text-3xl font-bold opacity-25 mb-10 lg:mb-28', className);
 
   useIsomorphicLayoutEffect(() => {
     if (!textRef.current) return;

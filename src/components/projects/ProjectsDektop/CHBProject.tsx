@@ -2,6 +2,8 @@ import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import LinkButton from '../../UI/LinkButton';
 import gsap from 'gsap';
+import Tags from '@/components/UI/Tags';
+import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 
 interface CHBProjectProps {
   triggerTimeline?: gsap.core.Tween;
@@ -10,9 +12,13 @@ interface CHBProjectProps {
 export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element => {
   const iphoneRef = useRef<HTMLImageElement>(null);
   const iphoneRef2 = useRef<HTMLImageElement>(null);
-
   const textContainer = useRef<HTMLDivElement>(null);
-  useEffect(() => {
+
+  const arrayTags = 'React Native, React Hook Form,React Query, Typescript, Figma, Firebase'.split(
+    ','
+  );
+
+  useIsomorphicLayoutEffect(() => {
     const context = gsap.context(() => {
       gsap.to(iphoneRef.current, {
         scale: 0.4,
@@ -61,10 +67,10 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
     return () => context.revert();
   }, [triggerTimeline]);
   return (
-    <section className="h-screen w-screen p-12 flex flex-row items-center flex-shrink-0 itemScroll">
+    <section className="h-screen w-screen relative p-12 flex flex-row items-center flex-shrink-0 itemScroll">
       <div
         ref={textContainer}
-        className="flex flex-col p-11 gap-10 min-w-[850px] justify-center items-center opacity-0"
+        className="flex flex-col p-11 gap-10 xl:min-w-[750px] justify-center items-center opacity-0"
       >
         <div>
           <h2 className="font-montserrat text-4xl font-bold ">Christian Hypnobirthing Project</h2>
@@ -77,15 +83,13 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
-              <p className="text-lg">
-                React Native, React Hook Form,React Query, Typescript, Figma, Firebase,
-              </p>
+              <Tags array={arrayTags} containerClassName='z-10' />
             </div>
           </div>
         </div>
         <LinkButton href="projects/chb" text="Learn More" />
       </div>
-      <div className="w-full h-full relative grid align-center">
+      <div className="w-full h-1/2 relative">
         <Image
           ref={iphoneRef}
           width={1339}

@@ -70,7 +70,7 @@ const Tech = (): JSX.Element => {
           ))}
         </div>
       </div>
-      <div className="absolute left-0 right-0 top-0 bottom-0 w-screen bg-gradient-to-r from-black via-transparent to-black z-[2]" />
+      <div className="absolute left-0 right-0 top-0 bottom-0 w-screen bg-gradient-to-r from-light dark:from-black via-transparent dark:via-transparent dark:to-black to-light z-[2]" />
     </Container>
   );
 };

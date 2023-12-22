@@ -65,7 +65,7 @@ export const LinkButtonMobile = ({
   return (
     <div ref={refProp} className={classMerge}>
       <Link href={href}>
-        <button className="py-4 px-10 rounded-3xl text-2xl font-semibold text-lightest flex flex-row gap-2 items-center border border-lightest">
+        <button className="py-4 px-10 rounded-3xl text-2xl font-semibold bg-dark dark:bg-transparent text-lightest flex flex-row gap-2 items-center border border-lightest">
           {text}
         </button>
       </Link>

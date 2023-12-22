@@ -9,6 +9,7 @@ import WhyUs from '@/components/WhyUs';
 import { ProjectsList } from '@/components/projects/ProjectsDektop/ProjectComponent';
 import { ProjectsListMobile } from '@/components/projects/ProjectsMobile/ProjectsListMobile';
 import { useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
 
 // import type { Metadata } from 'next';
 
@@ -29,7 +30,11 @@ export default function Home(): JSX.Element {
     });
   }, []);
   return (
-    <main id="main" className="relative flex min-h-screen flex-col overflow-x-hidden">
+    <main
+      id="main"
+      className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden"
+    >
+      <Toaster />
       <Nav />
       <Hero />
       <Services />
@@ -39,7 +44,7 @@ export default function Home(): JSX.Element {
       <ProjectsListMobile />
       <WhyUs />
       <Tech />
-      {/* <Contact /> */}
+      <Contact />
     </main>
   );
 }

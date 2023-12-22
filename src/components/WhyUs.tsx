@@ -94,7 +94,7 @@ const WhyUs = (): JSX.Element => {
       <Headline className="mb-6">How We Work</Headline>
       <div className="flex flex-col gap-52 w-full mt-20" ref={container}>
         {text.map((item, index) => (
-          <div key={index} className="grid grid-cols-3 w-full h-36 content-center">
+          <div key={item.title} className="grid grid-cols-3 w-full h-36 content-center">
             <h2 className="font-montserrat text-lg font-bold text-left opacity-10 km-title-text">
               {item.title}
             </h2>

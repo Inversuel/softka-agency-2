@@ -29,7 +29,7 @@ const Services = () => {
       icon: '/img/service/mobile.png',
     },
     {
-      id: 'gas321as312',
+      id: 'gas321as32',
       title: 'UI/UX Design',
       headline: 'express your ideas',
       description:
