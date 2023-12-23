@@ -4,6 +4,8 @@ import LinkButton from '../../UI/LinkButton';
 import gsap from 'gsap';
 import Tags from '@/components/UI/Tags';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+import Title from '@/components/UI/Title';
+import Description from '@/components/UI/Description';
 
 interface CHBProjectProps {
   triggerTimeline?: gsap.core.Tween;
@@ -70,16 +72,16 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
     <section className="h-screen w-screen relative p-12 flex flex-row items-center flex-shrink-0 itemScroll">
       <div
         ref={textContainer}
-        className="flex flex-col p-11 gap-10 xl:min-w-[750px] justify-center items-center opacity-0"
+        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 2xl:min-w-[1240px] justify-center items-center opacity-0"
       >
         <div>
-          <h2 className="font-montserrat text-4xl font-bold ">Christian Hypnobirthing Project</h2>
+          <Title className="">Christian Hypnobirthing Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
-              <p className="text-lg flex flex-col max-w-xl">
+              <Description className="flex flex-col max-w-xl">
                 Scripture-based breathing exercises, visualizations, positive affirmations, and more
-              </p>
+              </Description>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>

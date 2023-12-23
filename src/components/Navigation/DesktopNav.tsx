@@ -32,10 +32,10 @@ export const DesktopNav = (): JSX.Element => {
         ease: 'sine.out',
         force3D: true,
       });
-      gsap.from(buttonRef.current, {
-        yPercent: -100,
+      gsap.to(buttonRef.current, {
+        y: 1,
         duration: 1,
-        opacity: 0,
+        opacity: 1,
         delay: 0.5,
         stagger: 0.2,
         ease: 'sine.out',
@@ -44,10 +44,11 @@ export const DesktopNav = (): JSX.Element => {
       const tl2 = gsap.timeline({
         scrollTrigger: {
           trigger: buttonRef.current,
-          start: '+=200',
+          start: '+=330',
           end: '+=1',
           toggleActions: 'play none none reverse',
           scrub: 1,
+          markers: false,
         },
       });
       tl2.to(buttonRef.current, {
@@ -73,9 +74,12 @@ export const DesktopNav = (): JSX.Element => {
   }, [pathname]);
 
   return (
-    <nav ref={main} className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4">
+    <nav
+      ref={main}
+      className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4"
+    >
       <Logo refProp={logoRef} className="flex self-start cursor-pointer km-stagger" />
-      <div className="flex gap-7 align-middle items-center min-w-[614px]">
+      <div className="flex gap-7 align-middle items-center min-w-[614px] relative">
         <KMLink className="km-stagger" refProp={linkRef1} href="/">
           Home
         </KMLink>
@@ -90,7 +94,7 @@ export const DesktopNav = (): JSX.Element => {
         </KMLink>
         <button
           ref={buttonRef}
-          className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer fixed lg:right-24 right-4 lg:top-12 top-4"
+          className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer fixed lg:right-24 right-4 lg:top-12 top-4 3xl:right-[40rem] transition duration-500 -translate-y-40 opacity-0"
         >
           <span ref={textButtonRef}>Get Started</span>
           <span className="absolute">

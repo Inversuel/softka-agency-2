@@ -38,6 +38,16 @@ const config: Config = {
       backgroundImage: {
         'fade-opacity-gradient': 'radial-gradient(circle, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%)',
       },
+      spacing: {
+        '8xl': '90rem',
+      },
+      maxWidth: {
+        '8xl': '90rem',
+      },
+      screens: {
+        '2xl': '1440px',
+        '3xl': '1536px',
+      },
     },
   },
   plugins: [],

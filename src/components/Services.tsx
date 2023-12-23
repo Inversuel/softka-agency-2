@@ -39,7 +39,7 @@ const Services = () => {
     },
     {
       id: 'gas321as312',
-      title: 'Development/Outsourcing',
+      title: 'Development',
       description:
         'Elevate your projects with our premier outsourcing service. Tap into top-tier developers committed to turning your vision into reality. Benefit from cost-effective solutions, flexible engagement models, and a client-centric approach.',
       technology: 'Front-End, Full-Stack',
@@ -47,7 +47,7 @@ const Services = () => {
     },
   ];
   return (
-    <section className="relative w-screen px-4 md:px-12 lg:px-24">
+    <section className="relative w-screen 2xl:max-w-8xl 2xl:self-center px-4 md:px-12 lg:px-24">
       <Headline>Services</Headline>
       <div className="flex md:hidden flex-col gap-20">
         {items.map((item) => (

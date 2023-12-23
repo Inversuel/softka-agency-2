@@ -3,6 +3,8 @@ import React, { useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import Headline from './UI/Headline';
+import Title from './UI/Title';
+import Description from './UI/Description';
 gsap.registerPlugin(ScrollTrigger);
 
 const WhyUs = (): JSX.Element => {
@@ -90,20 +92,20 @@ const WhyUs = (): JSX.Element => {
   ];
 
   return (
-    <section className="w-screen px-4 md:px-12" ref={main}>
+    <section className="w-screen px-4 md:px-12 lg:px-24  2xl:max-w-8xl self-center" ref={main}>
       <Headline className="mb-6">How We Work</Headline>
       <div className="flex flex-col gap-52 w-full mt-20" ref={container}>
         {text.map((item, index) => (
           <div key={item.title} className="grid grid-cols-3 w-full h-36 content-center">
-            <h2 className="font-montserrat text-lg font-bold text-left opacity-10 km-title-text">
+            <Title className="text-left opacity-10 km-title-text">
               {item.title}
-            </h2>
+            </Title>
             <div
               className={`w-5 h-5 bg-lightest justify-self-center self-center place-self-center rounded-full km-ball km-ball-${index}`}
             />
-            <p className="font-montserrat text-base text-right max-w-md opacity-10 km-title-description">
+            <Description className="text-right max-w-md opacity-10 km-title-description">
               {item.description}
-            </p>
+            </Description>
           </div>
         ))}
       </div>

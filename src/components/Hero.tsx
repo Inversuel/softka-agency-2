@@ -76,7 +76,7 @@ const Hero = (): JSX.Element => {
     return () => ctx.revert();
   }, []);
   return (
-    <section className="relative" ref={scopeRef}>
+    <section className="relative 2xl:max-w-8xl 2xl:self-center" ref={scopeRef}>
       <div
         ref={blobRef}
         className="rounded-full w-[600px] h-[600px] bg-brand absolute -top-28 -left-28 blur-[300px] opacity-0"
@@ -85,7 +85,7 @@ const Hero = (): JSX.Element => {
         ref={blob2Ref}
         className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0 hidden lg:block"
       />
-      <main className="min-h-screen flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
+      <main className="min-h-screen 2xl:min-h-fit flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
         <div className="lg:p-24 md:p-12 p-4 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
           <h1
             ref={heroText}
@@ -102,12 +102,14 @@ const Hero = (): JSX.Element => {
             <span className="text-brand"> Our </span>
             Expertise
           </h6>
-          <button
-            ref={heroButton}
-            className="relative lg:py-6 py-4 lg:px-11 px-7 bg-brand rounded-3xl lg:text-2xl text-lg font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-110 hover:scale-105 hover:shadow-xl transition duration-500"
-          >
-            Get Started <FaArrowRight />
-          </button>
+          <a href="#contactSection">
+            <button
+              ref={heroButton}
+              className="relative lg:py-6 py-4 lg:px-11 px-7 bg-brand rounded-3xl lg:text-2xl text-lg font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-110 hover:scale-105 hover:shadow-xl transition duration-500"
+            >
+              Get Started <FaArrowRight />
+            </button>
+          </a>
         </div>
         <div className="col-start-2 col-end-4 row-start-1">
           <Image
@@ -120,7 +122,7 @@ const Hero = (): JSX.Element => {
             alt="Macbook with work"
           />
         </div>
-        <ScrollIndicator />
+        <ScrollIndicator className="lg:col-start-2 lg:col-end-2 lg:row-start-1 pb-20" />
       </main>
     </section>
   );

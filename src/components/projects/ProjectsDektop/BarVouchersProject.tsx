@@ -80,7 +80,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
       </div>
       <div
         ref={textRef}
-        className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start backdrop-blur-lg opacity-0 cm-clip-path-left-0"
+        className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg opacity-0 cm-clip-path-left-0"
       >
         <div>
           <Title>Bar Voucher Project</Title>

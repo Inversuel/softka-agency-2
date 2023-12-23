@@ -57,9 +57,9 @@ const Tech = (): JSX.Element => {
   }, [main.current]);
 
   return (
-    <Container className="relative second-section lg:p-24 px-4 md:px-12 py-10 w-screen min-h-screen-2/3 flex flex-col gap-10">
+    <Container className="self-center 2xl:overflow-hidden 2xl:max-w-8xl relative second-section lg:p-24 px-4 md:px-12 py-10 w-screen min-h-screen-2/3 flex flex-col gap-10">
       <Headline className="z-10 lg:max-w-[60%]">Technologies We Work With</Headline>
-      <div ref={main} className=" relative -left-32 my-7 bg-fade-opacity-gradient">
+      <div ref={main} className="relative -left-32 my-7 bg-fade-opacity-gradient">
         <div className="relative -left-32 lg:transform-gpu transform-none">
           {logos.map((logo, i) => (
             <TechItem
@@ -70,7 +70,7 @@ const Tech = (): JSX.Element => {
           ))}
         </div>
       </div>
-      <div className="absolute left-0 right-0 top-0 bottom-0 w-screen bg-gradient-to-r from-light dark:from-black via-transparent dark:via-transparent dark:to-black to-light z-[2]" />
+      <div className="absolute left-0 right-0 top-0 bottom-0 w-screen 2xl:max-w-8xl bg-gradient-to-r from-light dark:from-black via-transparent dark:via-transparent dark:to-black to-light z-[2]" />
     </Container>
   );
 };

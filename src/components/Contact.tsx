@@ -76,15 +76,18 @@ const ContactForm = () => {
   };
 
   return (
-    <section className="relative w-screen my-20 lg:mb-40 px-4 md:px-12 lg:px-24">
-      <Headline>Contact Us</Headline>
+    <section
+      id="contactSection"
+      className="relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center"
+    >
+      <Headline className="3xl:text-9xl">Contact Us</Headline>
       <form
         onSubmit={handleSubmit}
-        className="flex flex-col gap-4 lg:grid lg:grid-cols-2 lg:row-auto"
+        className="flex flex-col gap-4 3xl:self-center lg:grid lg:grid-cols-2 lg:row-auto 3xl:grid-cols-1 w-full"
       >
         <input
           placeholder="Your Name"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
+          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
           type="text"
           id="name"
           value={name}
@@ -93,7 +96,7 @@ const ContactForm = () => {
         />
         <input
           type="email"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
+          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
           placeholder="Email"
           id="email"
           value={email}
@@ -101,7 +104,7 @@ const ContactForm = () => {
         />
         <input
           type="phone"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
+          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
           placeholder="Phone Number"
           id="phone"
           value={phone}
@@ -109,7 +112,7 @@ const ContactForm = () => {
         />
         <input
           type="text"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
+          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
           placeholder="Budget Range"
           id="budget"
           value={budget}
@@ -118,12 +121,12 @@ const ContactForm = () => {
         <textarea
           placeholder="Project Description"
           id="message"
-          className="lg:col-span-2 bg-transparent border border-dark text-dark dark:text-lightest text-lg rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
+          className="lg:col-span-2 3xl:col-auto bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark  3xl:h-40 3xl:p-4 3xl:pl-6"
           value={message}
           onChange={handleMessageChange}
         />
         <button
-          className="lg:col-span-2 text-lightest hover:bg-transparent hover:text-lightest hover:border-white hover:border-2 transition w-full text-xl font-extrabold bg-dark dark:bg-light border border-dark dark:text-dark rounded-xl focus:border-brand p-2.5 flex justify-center"
+          className="lg:col-span-2 3xl:col-auto text-lightest hover:bg-transparent hover:text-lightest hover:border-white hover:border-2 transition w-full text-xl font-extrabold bg-dark dark:bg-light border border-dark dark:text-dark rounded-xl focus:border-brand p-2.5 flex justify-center align-middle items-center 3xl:h-20"
           type="submit"
           disabled={isLoading}
         >
