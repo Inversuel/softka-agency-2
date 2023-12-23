@@ -94,7 +94,7 @@ export const DesktopNav = (): JSX.Element => {
         </KMLink>
         <button
           ref={buttonRef}
-          className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer fixed lg:right-24 right-4 lg:top-12 top-4 3xl:right-[40rem] transition duration-500 -translate-y-40 opacity-0"
+          className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer fixed lg:right-24 right-4 lg:top-12 top-4 [@media(min-width:2504px)]:right-[40rem] transition duration-500 -translate-y-40 opacity-0"
         >
           <span ref={textButtonRef}>Get Started</span>
           <span className="absolute">
