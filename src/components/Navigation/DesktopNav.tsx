@@ -48,7 +48,6 @@ export const DesktopNav = (): JSX.Element => {
           end: '+=1',
           toggleActions: 'play none none reverse',
           scrub: 1,
-          markers: false,
         },
       });
       tl2.to(buttonRef.current, {

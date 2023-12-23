@@ -24,7 +24,6 @@ const Headline = ({ children, className }: Props): JSX.Element => {
           start: 'top 80%',
           end: 'bottom 10%',
           toggleActions: 'play reverse play reverse',
-          markers: true,
         },
       });
     }, textRef);
