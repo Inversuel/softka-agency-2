@@ -179,7 +179,13 @@ const ServiceItemMobile = ({
         {headline}
       </h5>
       <div className="km-image -translate-x-10 opacity-0 relative w-44 aspect-square rounded-3xl">
-        <Image src={icon} fill alt={title} className="rounded-3xl" />
+        <Image
+          src={icon}
+          fill
+          alt={title}
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          className="rounded-3xl"
+        />
       </div>
       <h3 className="km-title -translate-x-10 opacity-0 mb-2 text-2xl font-bold">{title}</h3>
       <p className="km-desc -translate-x-10 opacity-0 mb-4 text-left">{description}</p>

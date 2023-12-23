@@ -1,9 +1,7 @@
-'use client';
-
 import { DM_Sans, Montserrat, Poppins } from 'next/font/google';
 import './globals.css';
-import React from 'react';
-import { ReactLenis } from '@studio-freight/react-lenis';
+// import { ReactLenis } from '@studio-freight/react-lenis';
+import { Metadata } from 'next';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -23,6 +21,11 @@ const montserrat = Montserrat({
   variable: '--montserrat-font',
 });
 
+export const metadata: Metadata = {
+  title: 'Softka Agency',
+  description: 'Buld you dream site with soft and eazy way',
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
   return (
     <html
@@ -31,7 +34,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       suppressHydrationWarning={true}
     >
       <body className={`overflow-x-hidden relative`}>
-        <ReactLenis root>{children}</ReactLenis>
+        {/* <ReactLenis root> */}
+        {children}
+        {/* </ReactLenis> */}
         <footer></footer>
       </body>
     </html>
