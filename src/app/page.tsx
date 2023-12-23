@@ -34,8 +34,8 @@ export default function Home(): JSX.Element {
       id="main"
       className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden"
     >
-      <Toaster />
       <Nav />
+      <Toaster />
       <Hero />
       <Services />
       <div className="relative w-fit lg:block hidden">

@@ -72,7 +72,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
     <section className="h-screen w-screen relative p-12 flex flex-row items-center flex-shrink-0 itemScroll">
       <div
         ref={textContainer}
-        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 2xl:min-w-[1240px] justify-center items-center opacity-0"
+        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-center opacity-0"
       >
         <div>
           <Title className="">Christian Hypnobirthing Project</Title>
