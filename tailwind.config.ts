@@ -7,6 +7,12 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    transitionProperty: {
+      menu: 'transform, opacity, background',
+    },
+    transitionTimingFunction: {
+      'menu-ease': 'cubic-bezier(0.77,0.2,0.05,1.0)',
+    },
     fontFamily: {
       montserrat: 'var(--montserrat-font)',
       poppins: 'var(--poppins-font)',

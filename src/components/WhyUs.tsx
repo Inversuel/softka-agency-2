@@ -97,9 +97,7 @@ const WhyUs = (): JSX.Element => {
       <div className="flex flex-col gap-52 w-full mt-20" ref={container}>
         {text.map((item, index) => (
           <div key={item.title} className="grid grid-cols-3 w-full h-36 content-center">
-            <Title className="text-left opacity-10 km-title-text">
-              {item.title}
-            </Title>
+            <Title className="text-left opacity-10 km-title-text">{item.title}</Title>
             <div
               className={`w-5 h-5 bg-lightest justify-self-center self-center place-self-center rounded-full km-ball km-ball-${index}`}
             />

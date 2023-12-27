@@ -85,7 +85,7 @@ const Hero = (): JSX.Element => {
         ref={blob2Ref}
         className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0 hidden lg:block"
       />
-      <main className="min-h-screen 2xl:min-h-fit flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
+      <section className="min-h-screen 2xl:min-h-fit flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
         <div className="lg:p-24 md:p-12 p-4 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">
           <h1
             ref={heroText}
@@ -105,7 +105,7 @@ const Hero = (): JSX.Element => {
           <a href="#contactSection">
             <button
               ref={heroButton}
-              className="relative lg:py-6 py-4 lg:px-11 px-7 bg-brand rounded-3xl lg:text-2xl text-lg font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-110 hover:scale-105 hover:shadow-xl transition duration-500"
+              className="relative lg:py-4 py-4 lg:px-11 px-7 bg-brand rounded-3xl lg:text-2xl text-lg font-semibold text-lightest flex flex-row gap-2 items-center opacity-0 active:scale-110 hover:scale-105 hover:shadow-xl transition duration-500"
             >
               Get Started <FaArrowRight />
             </button>
@@ -123,7 +123,7 @@ const Hero = (): JSX.Element => {
           />
         </div>
         <ScrollIndicator className="lg:col-start-2 lg:col-end-2 lg:row-start-1 pb-20" />
-      </main>
+      </section>
     </section>
   );
 };

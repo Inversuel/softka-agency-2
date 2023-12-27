@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import LinkButton from '../../UI/LinkButton';
 import gsap from 'gsap';
@@ -18,8 +18,8 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
   const main = useRef<HTMLDivElement>(null);
   const tagsArray =
     'React Native, React Hook Form,React Query, Stripe, Typescript, Figma, Firebase'.split(',');
-  
-    useIsomorphicLayoutEffect(() => {
+
+  useIsomorphicLayoutEffect(() => {
     const context = gsap.context(() => {
       gsap.to(imageRef.current, {
         duration: 1,
@@ -96,7 +96,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
-              <Tags array={tagsArray} containerClassName='z-10' />
+              <Tags array={tagsArray} containerClassName="z-10" />
             </div>
           </div>
         </div>

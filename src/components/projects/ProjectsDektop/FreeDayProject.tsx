@@ -1,12 +1,13 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
-import LinkButton from '../../UI/LinkButton';
+import { Button } from '../../UI/LinkButton';
 import gsap from 'gsap';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+import { useRouter } from 'next/navigation';
 
 interface FreeDayProjectProps {
   triggerTimeline?: gsap.core.Tween;
@@ -15,12 +16,16 @@ interface FreeDayProjectProps {
 export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
+  const tlTransition = useRef<gsap.core.Timeline>();
+  const router = useRouter();
+
   const TagsArray =
     'React,React Query, React Hook Form, NextJS, Material UI, Typescript, RWD, Figma, Firebase'.split(
       ','
     );
+
   useIsomorphicLayoutEffect(() => {
-    if(!imageRef.current || !textRef.current) return;
+    if (!imageRef.current || !textRef.current) return;
     VanillaTilt.init(imageRef.current, {
       max: 15,
       perspective: 1400,
@@ -55,6 +60,24 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
           toggleActions: 'play none none reverse',
         },
       });
+      tlTransition.current = gsap.timeline({
+        paused: true,
+        ease: 'expo.inOut',
+        onComplete: () => {
+          router.push('/projects/freeday');
+        },
+      });
+      tlTransition.current
+        .to(imageRef.current, {
+          width: '100%',
+          height: '100%',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          right: 0,
+          bottom: 0,
+          duration: 1,
+        });
     });
     return () => context.revert();
   }, [triggerTimeline]);
@@ -82,14 +105,19 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
             </div>
           </div>
         </div>
-        <LinkButton href="/projects/freeday" text="Learn More" />
+        <Button
+          // /projects/freeday
+          // href="#"
+          text="Learn More"
+          onClick={() => tlTransition.current?.play()}
+        />
       </div>
       <div className="w-full h-full grid place-items-center">
         <Image
           ref={imageRef}
           width={1000}
           height={875}
-          src="/img/freeDayApp.jpeg"
+          src="/img/freeDayApp.jpg"
           alt="FreeDay Project Mockup"
           className="rounded-3xl transform-3d scale-0 opacity-0"
         />

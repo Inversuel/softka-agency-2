@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
-import LinkButton, { LinkButtonMobile } from '../../UI/LinkButton';
+import { LinkButtonMobile } from '../../UI/LinkButton';
 import gsap from 'gsap';
 import Tags from '@/components/UI/Tags';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
@@ -118,7 +118,7 @@ export const FreeDayProjectMobile = (): JSX.Element => {
           ref={imageRef}
           width={1000}
           height={875}
-          src="/img/freeDayApp.jpeg"
+          src="/img/freeDayApp.jpg"
           alt="FreeDay Project Mockup"
           className="rounded-3xl transform-3d translate-x-20 opacity-0"
         />

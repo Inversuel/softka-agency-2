@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
 import LinkButton from '../../UI/LinkButton';
 import gsap from 'gsap';
@@ -85,7 +85,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
               <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
-              <Tags array={arrayTags} containerClassName='z-10' />
+              <Tags array={arrayTags} containerClassName="z-10" />
             </div>
           </div>
         </div>

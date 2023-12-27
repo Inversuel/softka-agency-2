@@ -2,7 +2,6 @@
 
 import Contact from '@/components/Contact';
 import Hero from '@/components/Hero';
-import Nav from '@/components/Navigation/Nav';
 import Services from '@/components/Services';
 import Tech from '@/components/Tech';
 import WhyUs from '@/components/WhyUs';
@@ -19,7 +18,6 @@ import { Toaster } from 'react-hot-toast';
 // };
 export default function Home(): JSX.Element {
   useEffect(() => {
-    if (!document) return;
     document.querySelectorAll('img').forEach((img) => {
       img.style.webkitUserSelect = 'none';
       img.style.userSelect = 'none';
@@ -29,12 +27,12 @@ export default function Home(): JSX.Element {
       });
     });
   }, []);
+
   return (
     <main
       id="main"
       className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden"
     >
-      <Nav />
       <Toaster />
       <Hero />
       <Services />

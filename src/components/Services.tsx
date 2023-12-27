@@ -174,7 +174,7 @@ const ServiceItemMobile = ({
     return () => ctx.revert();
   }, []);
   return (
-    <div ref={main} className="flex flex-col items-start justify-center w-full gap-5">
+    <section ref={main} className="flex flex-col items-start justify-center w-full gap-5">
       <h5 className="km-headline -translate-x-10 opacity-0 uppercase font-extrabold text-sm mb-5">
         {headline}
       </h5>
@@ -190,7 +190,7 @@ const ServiceItemMobile = ({
       <h3 className="km-title -translate-x-10 opacity-0 mb-2 text-2xl font-bold">{title}</h3>
       <p className="km-desc -translate-x-10 opacity-0 mb-4 text-left">{description}</p>
       <Tags array={listOfTechnologies} containerClassName=" km-tags -translate-x-10 opacity-0" />
-    </div>
+    </section>
   );
 };
 

@@ -1,9 +1,8 @@
+import Image from 'next/image';
 import React, { AriaAttributes, useMemo } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-const iconMap = {
- 
-};
+const iconMap = {};
 
 export type IconType = keyof typeof iconMap;
 
@@ -24,15 +23,15 @@ export interface IconProps extends AriaAttributes {
 export const getIconSrc = (type: IconType): string => iconMap[type];
 
 export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
-  ({ type, size, width, className, alt = '', id, quantity, printable, ...rest }, ref) => {
+  ({ type, size, width, className, alt = '', id, quantity, ...rest }, ref) => {
     const _size = size ?? 24;
     const _width = width ?? _size;
     const iconSrc = getIconSrc(type);
     const Container: keyof JSX.IntrinsicElements = rest?.href
       ? 'a'
       : rest?.onClick
-      ? 'button'
-      : 'span';
+        ? 'button'
+        : 'span';
     const containerProps = useMemo(() => {
       if (Container === 'button') {
         const buttonProps = { type: 'button' };
@@ -50,12 +49,9 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
       <Container
         {...rest}
         {...containerProps}
-        className={twMerge(
-          'leading-none flex-none relative',
-          className
-        )}
+        className={twMerge('leading-none flex-none relative', className)}
       >
-        <img
+        <Image
           data-testid={id}
           className="h-full"
           ref={ref}
@@ -73,3 +69,5 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
     );
   }
 );
+
+Icon.displayName = 'Icon';

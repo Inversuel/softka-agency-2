@@ -2,6 +2,7 @@ import { DM_Sans, Montserrat, Poppins } from 'next/font/google';
 import './globals.css';
 // import { ReactLenis } from '@studio-freight/react-lenis';
 import { Metadata } from 'next';
+import Nav from '@/components/navigation/Nav';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -23,7 +24,7 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   title: 'Softka Agency',
-  description: 'Buld you dream site with soft and eazy way',
+  description: 'Build your dream site with soft and eazy way',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }): JSX.Element {
@@ -34,6 +35,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
       suppressHydrationWarning={true}
     >
       <body className={`overflow-x-hidden relative`}>
+        <Nav />
         {/* <ReactLenis root> */}
         {children}
         {/* </ReactLenis> */}

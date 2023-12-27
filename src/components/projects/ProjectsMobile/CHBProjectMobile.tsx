@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import Image from 'next/image';
-import LinkButton, { LinkButtonMobile } from '../../UI/LinkButton';
+import { LinkButtonMobile } from '../../UI/LinkButton';
 import gsap from 'gsap';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';

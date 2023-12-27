@@ -1,104 +1,95 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import KMLink from '../KMLink';
 import Logo from '../Logo';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
-import { usePathname } from 'next/navigation';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 
 export const DesktopNav = (): JSX.Element => {
-  const pathname = usePathname();
+  // const main = useRef<HTMLElement>(null);
+  // const logoRef = useRef(null);
+  // const linkRef1 = useRef<HTMLAnchorElement>(null);
+  // const linkRef2 = useRef<HTMLAnchorElement>(null);
+  // const linkRef3 = useRef<HTMLAnchorElement>(null);
+  // const linkRef4 = useRef<HTMLAnchorElement>(null);
+  // const buttonRef = useRef<HTMLButtonElement>(null);
 
-  const main = useRef<HTMLElement>(null);
-  const logoRef = useRef(null);
-  const linkRef1 = useRef<HTMLAnchorElement>(null);
-  const linkRef2 = useRef<HTMLAnchorElement>(null);
-  const linkRef3 = useRef<HTMLAnchorElement>(null);
-  const linkRef4 = useRef<HTMLAnchorElement>(null);
-  const buttonRef = useRef<HTMLButtonElement>(null);
+  // const textButtonRef = useRef<HTMLButtonElement>(null);
+  // const mailIconRef = useRef<SVGSVGElement>(null);
 
-  const textButtonRef = useRef<HTMLButtonElement>(null);
-  const mailIconRef = useRef<SVGSVGElement>(null);
+  // useIsomorphicLayoutEffect(() => {
+  //   gsap.registerPlugin(ScrollTrigger);
+  //   const ctx = gsap.context(() => {
+  //     gsap.from('.km-stagger', {
+  //       yPercent: -100,
+  //       duration: 1,
+  //       opacity: 0,
+  //       delay: 0.5,
+  //       stagger: 0.2,
+  //       ease: 'sine.out',
+  //       force3D: true,
+  //     });
+  //     gsap.to(buttonRef.current, {
+  //       y: 1,
+  //       duration: 1,
+  //       opacity: 1,
+  //       delay: 0.5,
+  //       stagger: 0.2,
+  //       ease: 'sine.out',
+  //       force3D: true,
+  //     });
+  //     const tl2 = gsap.timeline({
+  //       scrollTrigger: {
+  //         trigger: buttonRef.current,
+  //         start: '+=330',
+  //         end: '+=1',
+  //         toggleActions: 'play none none reverse',
+  //         scrub: 1,
+  //       },
+  //     });
+  //     tl2.to(buttonRef.current, {
+  //       top: 'auto',
+  //     });
+  //     tl2.to(buttonRef.current, {
+  //       bottom: '5rem',
+  //       right: '5rem',
+  //       zIndex: 100,
+  //       width: '5rem',
+  //       height: '5rem',
+  //       borderRadius: '1000rem',
+  //       paddingTop: '0rem',
+  //       paddingBottom: '0rem',
+  //       paddingLeft: '0rem',
+  //       paddingRight: '0rem',
+  //     });
+  //     tl2.to(textButtonRef.current, { opacity: 0, display: 'none' }, '<');
+  //     tl2.to(mailIconRef.current, { opacity: 1, display: 'block' }, '<');
+  //   });
 
-  useIsomorphicLayoutEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    const ctx = gsap.context(() => {
-      gsap.from('.km-stagger', {
-        yPercent: -100,
-        duration: 1,
-        opacity: 0,
-        delay: 0.5,
-        stagger: 0.2,
-        ease: 'sine.out',
-        force3D: true,
-      });
-      gsap.to(buttonRef.current, {
-        y: 1,
-        duration: 1,
-        opacity: 1,
-        delay: 0.5,
-        stagger: 0.2,
-        ease: 'sine.out',
-        force3D: true,
-      });
-      const tl2 = gsap.timeline({
-        scrollTrigger: {
-          trigger: buttonRef.current,
-          start: '+=330',
-          end: '+=1',
-          toggleActions: 'play none none reverse',
-          scrub: 1,
-        },
-      });
-      tl2.to(buttonRef.current, {
-        top: 'auto',
-      });
-      tl2.to(buttonRef.current, {
-        bottom: '5rem',
-        right: '5rem',
-        zIndex: 100,
-        width: '5rem',
-        height: '5rem',
-        borderRadius: '1000rem',
-        paddingTop: '0rem',
-        paddingBottom: '0rem',
-        paddingLeft: '0rem',
-        paddingRight: '0rem',
-      });
-      tl2.to(textButtonRef.current, { opacity: 0, display: 'none' }, '<');
-      tl2.to(mailIconRef.current, { opacity: 1, display: 'block' }, '<');
-    });
-
-    return () => ctx.revert();
-  }, [pathname]);
+  //   return () => ctx.revert();
+  // }, [pathname]);
 
   return (
-    <nav
-      ref={main}
-      className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4"
-    >
-      <Logo refProp={logoRef} className="flex self-start cursor-pointer km-stagger" />
+    <nav className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4">
+      <Logo className="flex self-start cursor-pointer km-stagger" />
       <div className="flex gap-7 align-middle items-center min-w-[614px] relative">
-        <KMLink className="km-stagger" refProp={linkRef1} href="/">
+        <KMLink className="km-stagger" href="/">
           Home
         </KMLink>
-        <KMLink className="km-stagger" refProp={linkRef2} href="/projects">
+        <KMLink className="km-stagger" href="/projects">
           Projects
         </KMLink>
-        <KMLink className="km-stagger" refProp={linkRef3} href="/services">
+        <KMLink className="km-stagger" href="#services">
           Service
         </KMLink>
-        <KMLink className="km-stagger" refProp={linkRef4} href="/contact">
+        <KMLink className="km-stagger" href="#contact">
           Contact
         </KMLink>
-        <button
-          ref={buttonRef}
-          className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer fixed lg:right-24 right-4 lg:top-12 top-4 [@media(min-width:2504px)]:right-[40rem] transition duration-500 -translate-y-40 opacity-0"
-        >
-          <span ref={textButtonRef}>Get Started</span>
-          <span className="absolute">
+        <button className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer transition duration-500">
+          {/* // fixed lg:right-24 right-4 lg:top-12 top-4 
+        // [@media(min-width:2504px)]:right-[40rem] */}
+
+          <span>Get Started</span>
+          {/* <span className="absolute">
             <svg
-              ref={mailIconRef}
+             
               className="opacity-0 hidden"
               height="50px"
               width="50px"
@@ -114,7 +105,7 @@ export const DesktopNav = (): JSX.Element => {
                 fill="white"
               />
             </svg>
-          </span>
+          </span> */}
         </button>
       </div>
     </nav>
