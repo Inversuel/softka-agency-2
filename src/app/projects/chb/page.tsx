@@ -1,9 +1,9 @@
 import React from 'react';
 import ProjectLayout from '@/components/projects/projectsGrid/ProjectLayout';
-import { FreeDayData } from '@/projectData';
+import { CHBData } from '@/projectData';
 
 const Page = () => {
-  return <ProjectLayout {...FreeDayData} />;
+  return <ProjectLayout {...CHBData} />;
 };
 
 export default Page;

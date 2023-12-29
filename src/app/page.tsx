@@ -31,7 +31,7 @@ export default function Home(): JSX.Element {
   return (
     <main
       id="main"
-      className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden"
+      className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden font-montserrat"
     >
       <Toaster />
       <Hero />

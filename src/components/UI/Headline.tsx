@@ -1,7 +1,11 @@
+'use client';
+
 import React from 'react';
 import { twMerge } from 'tailwind-merge';
 import gsap from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
   children: React.ReactNode;

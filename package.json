@@ -15,6 +15,7 @@
     "@react-three/drei": "^9.88.14",
     "@react-three/fiber": "^8.15.11",
     "@studio-freight/react-lenis": "^0.0.38",
+    "@tailwindcss/line-clamp": "^0.4.4",
     "gsap": "^3.12.2",
     "next": "14.0.1",
     "react": "^18",
