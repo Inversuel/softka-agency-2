@@ -57,4 +57,20 @@ export const BarVoucherData: ProjectDataType = {
   ],
 };
 
-export const ProjectData: ProjectDataType[] = [FreeDayData, CHBData, BarVoucherData];
+export const SynlabData: ProjectDataType = {
+  tagsArray:
+    'Next.js, SiteCore, Typescript, Figma, Stripe, TailwindCSS, Next Auth, I18-Next, GraphQL, Rest Api, Storybook, Jest',
+  imageSrc2: '/img/project/MacBookSynlab.png',
+  imageSrc: '/img/project/MacBookSynlab.png',
+  description:
+    'Synlab provide a wide range of medical tests and services through thier website e-commerce. Also expertise of the doctors and the medical staff. Test results are available online and you can order a sample for testing at home.',
+  title: 'Synlab E-commerce Project',
+  imageAlt: 'Synlab Project Mockup',
+  imageAlt2: 'Synlab Project Mockup Second',
+  href: '/projects/synlab',
+  ourPart: [
+    'Our involvement in this project extended to the development of the front-end component of the application. Leveraging design specifications provided by Figma, we meticulously translated the visual elements into a functional and aesthetically pleasing interface using Next.js.',
+  ],
+};
+
+export const ProjectData: ProjectDataType[] = [FreeDayData, CHBData, BarVoucherData, SynlabData];

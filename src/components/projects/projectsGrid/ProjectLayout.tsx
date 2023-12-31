@@ -1,4 +1,4 @@
-import NextBreadcrumb from '@/components/Breadcrumbs/NextBreadcrumb';
+import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
 import Title from '@/components/UI/Title';
@@ -48,10 +48,9 @@ const ProjectLayout = ({
             width={1000}
             height={875}
             src={imageSrc2 ?? ''}
-            priority
             alt={imageAlt2 ?? 'Project Mockup'}
             className="rounded-3xl z-[1] transform-3d w-1/2"
-            loading="eager"
+            loading="lazy"
           />
           <div className="z-[2] lg:max-w-2xl p-4 w-full">
             <Title>{title}</Title>

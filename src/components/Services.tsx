@@ -304,7 +304,7 @@ const ServiceItem = ({
         <div
           className={`${
             reverse ? 'col-start-2 col-end-4 row-start-1' : 'col-start-1 col-end-3 row-start-1'
-          } z-10 flex flex-col gap-5 justify-center items-start xl:backdrop-blur-xl xl:p-10 xl:rounded-3xl`}
+          } z-10 flex flex-col gap-5 justify-center items-start lg:backdrop-blur-xl lg:p-5 lg:rounded-3xl xl:p-10 xl:rounded-3xl`}
         >
           <Title className="km-title -translate-x-10 opacity-0 mb-2">{title}</Title>
           <Description className="km-desc -translate-x-10 opacity-0 mb-4">

@@ -79,11 +79,11 @@ const Hero = (): JSX.Element => {
     <section className="relative 2xl:max-w-8xl 2xl:self-center" ref={scopeRef}>
       <div
         ref={blobRef}
-        className="rounded-full w-[600px] h-[600px] bg-brand absolute -top-28 -left-28 blur-[300px] opacity-0"
+        className="rounded-full w-[600px] h-[600px] bg-brand absolute -bottom-28 -left-28 blur-[300px] opacity-0"
       />
       <div
         ref={blob2Ref}
-        className="rounded-full w-[500px] h-[500px] bg-mid absolute -top-28 -right-28 blur-[300px] opacity-0 hidden lg:block"
+        className="rounded-full w-[500px] h-[500px] bg-mid absolute -bottom-28 -right-28 blur-[300px] opacity-0 hidden lg:block"
       />
       <section className="min-h-screen 2xl:min-h-fit flex flex-col lg:grid lg:grid-cols-3 relative mt-12">
         <div className="lg:p-24 md:p-12 p-4 flex flex-col items-start gap-10 col-start-1 col-end-3 row-start-1">

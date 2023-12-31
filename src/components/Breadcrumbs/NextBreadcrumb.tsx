@@ -16,7 +16,7 @@ const NextBreadcrumb = ({ padding = true }: NextBreadcrumbProps) => {
   return (
     <div className={`2xl:max-w-8xl ${padding ? 'px-4 lg:px-24' : ''}`}>
       <ul className="flex py-5">
-        <li className="hover:underline mx-2 font-bold">
+        <li className="hover-underline-animation mx-2 font-bold">
           <Link href={'/'}>Home</Link>
         </li>
         {pathNames.length > 0 && <span> / </span>}
@@ -24,8 +24,8 @@ const NextBreadcrumb = ({ padding = true }: NextBreadcrumbProps) => {
           const href = `/${pathNames.slice(0, index + 1).join('/')}`;
           const itemClasses =
             paths === href
-              ? `${'hover:underline mx-2 font-bold'} ${'underline'}`
-              : 'hover:underline mx-2 font-bold';
+              ? `${'mx-2 font-bold'} ${'underline'}`
+              : 'hover-underline-animation mx-2 font-bold';
           const itemLink = link[0].toUpperCase() + link.slice(1, link.length);
           return (
             <React.Fragment key={index}>

@@ -1,12 +1,11 @@
 'use client';
+
 import React, { useRef } from 'react';
-import { Container } from './Container';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 import gsap from 'gsap';
 import Image from 'next/image';
-import Headline from './UI/Headline';
 
-const Tech = (): JSX.Element => {
+const TechSlider = () => {
   const main = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const logos = [
@@ -57,25 +56,24 @@ const Tech = (): JSX.Element => {
   }, [main.current]);
 
   return (
-    <Container className="self-center 2xl:overflow-hidden 2xl:max-w-8xl relative second-section lg:p-24 px-4 md:px-12 py-10 w-screen min-h-screen-2/3 flex flex-col gap-10">
-      <Headline className="z-10 lg:max-w-[60%]">Technologies We Work With</Headline>
+    <div className="relative h-36 rotate-12 -translate-y-10">
+      {/* <div className="absolute lg:-left-24 lg:-right-24 -left-4 -right-4 md:-left-12 md:-right-12 h-48 top-1/2 -translate-y-1/2 bg-gradient-to-r from-light dark:from-black via-transparent dark:via-transparent dark:to-black to-light z-[2]" /> */}
       <div ref={main} className="relative -left-32 my-7 bg-fade-opacity-gradient">
-        <div className="relative -left-32 lg:transform-gpu transform-none">
+        <div className="relative -left-32 h-32 lg:transform-gpu transform-none">
           {logos.map((logo, i) => (
             <TechItem
               src={logo}
               key={i}
-              className={`absolute top-0 -translate-y-[50%] itemInf h-32 w-32 grid place-items-center`}
+              className={`absolute top-1/2 -translate-y-1/2  itemInf h-32 w-32 grid place-items-center`}
             ></TechItem>
           ))}
         </div>
       </div>
-      <div className="absolute left-0 right-0 top-0 bottom-0 w-screen 2xl:max-w-8xl bg-gradient-to-r from-light dark:from-black via-transparent dark:via-transparent dark:to-black to-light z-[2]" />
-    </Container>
+    </div>
   );
 };
 
-export default Tech;
+export default TechSlider;
 
 interface TechItemProps {
   children?: React.ReactNode;

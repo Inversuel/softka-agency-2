@@ -19,7 +19,7 @@ export const MobileNav = (): JSX.Element => {
         <span className="fixed top-[60px] flex w-[29px] h-[2px] mb-2 bg-lightest rounded-sm z-[1] transition-menu ease-menu-ease"></span>
         <ul
           id="menu"
-          className="fixed inset-0 -ml-[24px] -mt-10 p-10 bg-dark origin-[0%_0%] -translate-x-full transition-menu ease-menu-ease flex flex-col justify-center items-center gap-8"
+          className="fixed inset-0 -ml-[24px] -mt-10 p-10 bg-dark origin-[0%_0%] -translate-x-full transition-menu ease-menu-ease flex flex-col items-center gap-8 justify-center"
         >
           <li className="delay-[2s] px-0 py-2.5">
             <KMLink className="text-3xl" href="/">
@@ -29,11 +29,6 @@ export const MobileNav = (): JSX.Element => {
           <li className="delay-[2s] px-0 py-2.5">
             <KMLink className="text-3xl" href="/projects">
               Projects
-            </KMLink>
-          </li>
-          <li className="delay-[2s] px-0 py-2.5">
-            <KMLink className="text-3xl" href="#services">
-              Service
             </KMLink>
           </li>
           <li className="delay-[2s] px-0 py-2.5">

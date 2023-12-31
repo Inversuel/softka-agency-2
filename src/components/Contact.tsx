@@ -1,16 +1,30 @@
+'use client';
+
 import Headline from './UI/Headline';
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
 import Spinner from './UI/Spinner';
 import toast from 'react-hot-toast';
+import Link from 'next/link';
+import { twMerge } from 'tailwind-merge';
 
-const ContactForm = () => {
+interface ContactFormProps {
+  showBack?: boolean;
+  className?: string;
+}
+
+const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [budget, setBudget] = useState('');
   const [message, setMessage] = useState('');
   const [phone, setPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+
+  const twMergeClass = twMerge(
+    'relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center',
+    className
+  );
 
   const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setName(event.target.value);
@@ -76,10 +90,24 @@ const ContactForm = () => {
   };
 
   return (
-    <section
-      id="contactSection"
-      className="relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center"
-    >
+    <section id="contactSection" className={twMergeClass}>
+      {showBack && (
+        <Link
+          href="/"
+          prefetch
+          className="flex flex-row items-center justify-start gap-4 my-7 text-xl hover-underline-animation"
+        >
+          <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M11 17l-5-5m0 0l5-5m-5 5h12"
+            />
+          </svg>
+          Go back
+        </Link>
+      )}
       <Headline className="3xl:text-9xl">Contact Us</Headline>
       <form
         onSubmit={handleSubmit}

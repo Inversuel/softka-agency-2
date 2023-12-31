@@ -67,25 +67,21 @@ export const DesktopNav = (): JSX.Element => {
   // }, [pathname]);
 
   return (
-    <nav className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4">
+    <nav className="hidden lg:flex w-full align-middle items-center justify-between lg:px-24 px-4 animate-slide-from-top">
       <Logo className="flex self-start cursor-pointer km-stagger" />
-      <div className="flex gap-7 align-middle items-center min-w-[614px] relative">
+      <div className="flex gap-7 align-middle justify-end items-center min-w-[614px] relative">
         <KMLink className="km-stagger" href="/">
           Home
         </KMLink>
         <KMLink className="km-stagger" href="/projects">
           Projects
         </KMLink>
-        <KMLink className="km-stagger" href="#services">
-          Service
-        </KMLink>
-        <KMLink className="km-stagger" href="#contact">
+        <KMLink className="km-stagger" href="contact">
           Contact
         </KMLink>
         <button className="py-3 px-12 grid place-items-center bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl cursor-pointer transition duration-500">
           {/* // fixed lg:right-24 right-4 lg:top-12 top-4 
         // [@media(min-width:2504px)]:right-[40rem] */}
-
           <span>Get Started</span>
           {/* <span className="absolute">
             <svg

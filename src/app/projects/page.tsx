@@ -1,4 +1,4 @@
-import NextBreadcrumb from '@/components/Breadcrumbs/NextBreadcrumb';
+import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 import Headline from '@/components/UI/Headline';
 import React from 'react';
 import { ProjectData } from '@/projectData';
@@ -28,7 +28,7 @@ const ProjectsGrid = () => {
               <div className="flex flex-col p-4 gap-4 h-full justify-around items-start">
                 <h1 className="font-semibold text-2xl">{project.title}</h1>
                 <p className="line-clamp-3">{project.description}</p>
-                <Link href={project.href} className="border rounded-3xl px-7 py-3 self-end">
+                <Link href={project.href} className="border rounded-3xl px-7 py-3 self-end hover:bg-brand hover:text-lightest hover:border-black transition duration-500">
                   Learn more
                 </Link>
               </div>

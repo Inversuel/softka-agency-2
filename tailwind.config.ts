@@ -7,24 +7,21 @@ const config: Config = {
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
-    transitionProperty: {
-      menu: 'transform, opacity, background',
-    },
-    transitionTimingFunction: {
-      'menu-ease': 'cubic-bezier(0.77,0.2,0.05,1.0)',
-    },
     fontFamily: {
       montserrat: 'var(--montserrat-font)',
       poppins: 'var(--poppins-font)',
       'dm-snans': 'var(--dm-snans-font)',
     },
     extend: {
+      transitionProperty: {
+        menu: 'transform, opacity, background',
+      },
+      transitionTimingFunction: {
+        'menu-ease': 'cubic-bezier(0.77,0.2,0.05,1.0)',
+      },
       animation: {
         rotate: 'rotate 10s linear infinite',
-      },
-      minHeight: {
-        'screen-2/3': '60vh',
-        'screen-8/9': '85vh',
+        'slide-from-top': '1s ease-out 0s 1 slideFromTop',
       },
       keyframes: {
         rotate: {
@@ -32,6 +29,14 @@ const config: Config = {
           '50%': { scale: '0.7' },
           '100%': { rotate: '360deg' },
         },
+        slideFromTop: {
+          from: { transform: 'translateY(-100%)' },
+          to: { transform: 'translateY(0)' },
+        },
+      },
+      minHeight: {
+        'screen-2/3': '60vh',
+        'screen-8/9': '85vh',
       },
       colors: {
         brand: '#AC58F5',
@@ -56,6 +61,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [require('@tailwindcss/line-clamp')],
+  plugins: [],
 };
 export default config;
