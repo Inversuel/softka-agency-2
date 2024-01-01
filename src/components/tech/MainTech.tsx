@@ -15,12 +15,12 @@ const MainTech = (): JSX.Element => {
     [
       { title: 'Firebase', logo: '/logo/logo-firebase.svg' },
       { title: 'Aws', logo: '/logo/logo-aws.svg' },
-      { title: 'Google Cloud', logo: '/logo/logo-gcp.png' },
+      { title: 'Google Cloud', logo: '/logo/logo-gcp.svg' },
     ],
     [
       { title: 'Strapi', logo: '/logo/logo-strapi.svg' },
-      { title: 'Wordpress', logo: '/logo/logo-wp.png' },
-      { title: 'Shopify', logo: '/logo/logo-shopify.png' },
+      { title: 'Wordpress', logo: '/logo/logo-wp.svg' },
+      { title: 'Shopify', logo: '/logo/logo-shopify.svg' },
     ],
   ];
 

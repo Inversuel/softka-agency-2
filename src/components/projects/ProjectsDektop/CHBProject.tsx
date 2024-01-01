@@ -22,48 +22,33 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
 
   useIsomorphicLayoutEffect(() => {
     const context = gsap.context(() => {
-      gsap.to(iphoneRef.current, {
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: textContainer.current,
+          containerAnimation: triggerTimeline,
+          start: 'start 80%',
+          end: '80% 80%',
+          toggleActions: 'play none none reverse',
+        },
+      });
+      tl.to(iphoneRef.current, {
         scale: 0.4,
-        duration: 1,
-        delay: 0.45,
+        duration: 0.5,
         opacity: 1,
         ease: 'power3.inOut',
         zIndex: 11,
-        scrollTrigger: {
-          trigger: textContainer.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '1',
       });
-      gsap.to(iphoneRef2.current, {
+      tl.to(iphoneRef2.current, {
         scale: 0.7,
-        duration: 1,
-        delay: 0.45,
+        duration: 0.5,
         opacity: 1,
         ease: 'power3.inOut',
-        scrollTrigger: {
-          trigger: textContainer.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '3',
       });
-      gsap.to(textContainer.current, {
-        duration: 1,
+      tl.to(textContainer.current, {
+        duration: 0.5,
         ease: 'power3.inOut',
-        delay: 0.3,
         opacity: 1,
         alignItems: 'flex-start',
-        scrollTrigger: {
-          trigger: textContainer.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '2',
       });
     });
     return () => context.revert();
