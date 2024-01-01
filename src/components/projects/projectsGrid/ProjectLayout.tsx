@@ -1,9 +1,9 @@
-import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
 import Title from '@/components/UI/Title';
 import React, { ReactNode } from 'react';
 import Image from 'next/image';
+import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 
 interface ProjectLayoutProps {
   tagsArray: string;

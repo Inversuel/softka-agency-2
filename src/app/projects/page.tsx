@@ -1,9 +1,9 @@
-import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 import Headline from '@/components/UI/Headline';
 import React from 'react';
 import { ProjectData } from '@/projectData';
 import Link from 'next/link';
 import Image from 'next/image';
+import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';
 
 const ProjectsGrid = () => {
   return (

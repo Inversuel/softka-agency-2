@@ -1,8 +1,8 @@
 import { DM_Sans, Montserrat, Poppins } from 'next/font/google';
 import './globals.css';
+import Nav from '@/components/navigation/Nav';
 // import { ReactLenis } from '@studio-freight/react-lenis';
 import { Metadata } from 'next';
-import Nav from '@/components/navigation/Nav';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
