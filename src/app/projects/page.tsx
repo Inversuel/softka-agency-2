@@ -22,13 +22,16 @@ const ProjectsGrid = () => {
                   alt={project.imageAlt2 ?? 'Project mockup image'}
                   src={project.imageSrc2 ?? ''}
                   fill
-                  sizes='(min-width: 808px) 50vw, 100vw'
+                  sizes="(min-width: 808px) 50vw, 100vw"
                 />
               </div>
               <div className="flex flex-col p-4 gap-4 h-full justify-around items-start">
                 <h1 className="font-semibold text-2xl">{project.title}</h1>
                 <p className="line-clamp-3">{project.description}</p>
-                <Link href={project.href} className="border rounded-3xl px-7 py-3 self-end hover:bg-brand hover:text-lightest hover:border-black transition duration-500">
+                <Link
+                  href={project.href}
+                  className="border rounded-3xl px-7 py-3 self-end hover:bg-brand hover:text-lightest hover:border-black transition duration-500"
+                >
                   Learn more
                 </Link>
               </div>
