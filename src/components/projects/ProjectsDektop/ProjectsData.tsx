@@ -5,7 +5,7 @@ export const SynLabProject = (): JSX.Element => {
     //   description={
     //     'Project descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion'
     //   }
-    //   image={'/img/Macbook2.png'}
+    //   image={'/img/Macbook2.webp'}
     //   link={''}
     // />
     <></>
@@ -19,7 +19,7 @@ export const MayonesProject = (): JSX.Element => {
     //   description={
     //     'Project descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion descritpion'
     //   }
-    //   image={'/img/Macbook2.png'}
+    //   image={'/img/Macbook2.webp'}
     //   link={''}
     // />
     <></>

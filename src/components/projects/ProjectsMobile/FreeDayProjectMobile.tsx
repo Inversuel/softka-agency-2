@@ -93,7 +93,7 @@ export const FreeDayProjectMobile = (): JSX.Element => {
           </Title>
           <div className="flex flex-col gap-4">
             <div ref={descRef} className="flex flex-col translate-x-20 opacity-0">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="max-w-xs">
                 An AI app that provides automation for chats and emails, it also provides a
                 <span className="text-brand"> dashboard</span> for the company to manage the
@@ -101,7 +101,7 @@ export const FreeDayProjectMobile = (): JSX.Element => {
               </Description>
             </div>
             <div ref={techRef} className="flex flex-col gap-3 translate-x-20 opacity-0">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={TagsArray} containerClassName="z-10" />
             </div>
           </div>
@@ -118,7 +118,7 @@ export const FreeDayProjectMobile = (): JSX.Element => {
           ref={imageRef}
           width={1000}
           height={875}
-          src="/img/freeDayApp.jpg"
+          src="/img/freeDayApp.webp"
           alt="FreeDay Project Mockup"
           className="rounded-3xl transform-3d translate-x-20 opacity-0"
         />

@@ -73,7 +73,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
           ref={imageRef2}
           width={1000}
           height={875}
-          src="/img/barVoucherIphone.png"
+          src="/img/barVoucherIphone.webp"
           alt="Barvoucher Project Mockup"
           className="rounded-3xl transform-3d hover:z-10 opacity-0 cm-clip-path-left-0"
         />
@@ -86,7 +86,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
           <Title>Bar Voucher Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="max-w-xl">
                 <span className="text-brand">BarVoucher</span> Your gateway to exclusive discounts
                 at premier bars and restaurants across your city. App provides a filter of bars,
@@ -95,7 +95,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
               </Description>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={tagsArray} containerClassName="z-10" />
             </div>
           </div>
@@ -107,7 +107,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
           ref={imageRef}
           width={1000}
           height={875}
-          src="/img/barVoucherIphone2.png"
+          src="/img/barVoucherIphone2.webp"
           alt="Barvoucher Project Mockup"
           className="rounded-3xl transform-3d z-10 opacity-0 cm-clip-path-left-0"
         />

@@ -105,7 +105,7 @@ export const CHBProjectMobile = (): JSX.Element => {
           ref={imageRef}
           width={1339}
           height={2716}
-          src="/img/chb-mockup2.png"
+          src="/img/chb-mockup2.webp"
           alt="Christian hypnobirth Project Mockup"
           className="rounded-3xl transform-3d z-10 opacity-0 translate-x-20 scale-x-125"
         />
@@ -117,13 +117,13 @@ export const CHBProjectMobile = (): JSX.Element => {
           </Title>
           <div className="flex flex-col gap-4">
             <div ref={descRef} className="flex flex-col  opacity-0 translate-x-20">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="max-w-xs">
                 Scripture-based breathing exercises, visualizations, positive affirmations, and more
               </Description>
             </div>
             <div ref={techRef} className="flex flex-col gap-3 max-w-xs opacity-0 translate-x-20">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={arrayTags} containerClassName="z-10" />
             </div>
           </div>
@@ -140,7 +140,7 @@ export const CHBProjectMobile = (): JSX.Element => {
           ref={imageRef2}
           width={1339}
           height={2716}
-          src="/img/chb-mockup.png"
+          src="/img/chb-mockup.webp"
           alt="Christian hypnobirth Project Mockup"
           className="rounded-3xl transform-3d z-10 opacity-0 translate-x-20"
         />

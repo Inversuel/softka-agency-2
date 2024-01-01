@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:start": "next build && next start -p 4000",
     "start": "next start",
     "eslint": "eslint --fix",
     "lint": "eslint '*/**/*.{js,jsx,ts,tsx}' --quiet",

@@ -103,7 +103,7 @@ export const BarVouchersProjectMobile = (): JSX.Element => {
           ref={imageRef2}
           width={1000}
           height={875}
-          src="/img/barVoucherIphone.png"
+          src="/img/barVoucherIphone.webp"
           alt="Barvoucher Project Mockup"
           className="rounded-3xl transform-3d hover:z-10 active:z-10 opacity-0 translate-x-20"
         />
@@ -115,7 +115,7 @@ export const BarVouchersProjectMobile = (): JSX.Element => {
           </Title>
           <div className="flex flex-col gap-4">
             <div ref={descRef} className="flex flex-col opacity-0 translate-x-20">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="text-lg max-w-xs">
                 <span className="text-brand">BarVoucher</span> is Your gateway to exclusive
                 discounts at premier bars and restaurants across your city. App provides a filter of
@@ -124,7 +124,7 @@ export const BarVouchersProjectMobile = (): JSX.Element => {
               <span className="text-lg font-semibold">Soon available on IOS and Android</span>
             </div>
             <div ref={techRef} className="flex flex-col gap-3 max-w-xs opacity-0 translate-x-20">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={arrayTags} containerClassName="z-10" />
             </div>
           </div>
@@ -140,7 +140,7 @@ export const BarVouchersProjectMobile = (): JSX.Element => {
         <Image
           ref={imageRef}
           fill
-          src="/img/barVoucherIphone2.png"
+          src="/img/barVoucherIphone2.webp"
           alt="Barvoucher Project Mockup"
           className="rounded-3xl transform-3d z-10 opacity-0 translate-x-20"
         />

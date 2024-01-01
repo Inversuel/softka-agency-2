@@ -13,8 +13,8 @@ interface ProjectDataType {
 export const FreeDayData: ProjectDataType = {
   tagsArray:
     'React,React Query, React Hook Form, NextJS, Material UI, Typescript, RWD, Figma, Firebase',
-  imageSrc2: '/img/project/freedayPhone.png',
-  imageSrc: '/img/freeDayApp.jpg',
+  imageSrc2: '/img/project/freedayPhone.webp',
+  imageSrc: '/img/freeDayApp.webp',
   description:
     'An AI app that provides automation for chats and emails, it also provides a dashboard for the company to manage the information and the AI.',
   title: 'FreeDay Project',
@@ -27,8 +27,8 @@ export const FreeDayData: ProjectDataType = {
 
 export const CHBData: ProjectDataType = {
   tagsArray: 'React Native, React Hook Form,React Query, Typescript, Figma, Firebase',
-  imageSrc2: '/img/project/chbPhone.png',
-  imageSrc: '/img/chb-mockup2.png',
+  imageSrc2: '/img/project/chbPhone.webp',
+  imageSrc: '/img/chb-mockup2.webp',
   description:
     'Scripture-based breathing exercises, visualizations, positive affirmations, and more',
   title: 'Christian Hypnobirthing Project',
@@ -43,8 +43,8 @@ export const CHBData: ProjectDataType = {
 
 export const BarVoucherData: ProjectDataType = {
   tagsArray: 'React Native, React Hook Form,React Query, Stripe, Typescript, Figma, Firebase',
-  imageSrc2: '/img/project/barVoucherPhone.png',
-  imageSrc: '/img/barVoucherIphone.png',
+  imageSrc2: '/img/project/barVoucherPhone.webp',
+  imageSrc: '/img/barVoucherIphone.webp',
   description:
     'Your gateway to exclusive discounts at premier bars and restaurants across your city. App provides a filter of bars, city, distance from a device, and a map view of the bars. Soon available on IOS and Android.',
   title: 'Bar Voucher Project',
@@ -60,8 +60,8 @@ export const BarVoucherData: ProjectDataType = {
 export const SynlabData: ProjectDataType = {
   tagsArray:
     'Next.js, SiteCore, Typescript, Figma, Stripe, TailwindCSS, Next Auth, I18-Next, GraphQL, Rest Api, Storybook, Jest',
-  imageSrc2: '/img/project/MacBookSynlab.png',
-  imageSrc: '/img/project/MacBookSynlab.png',
+  imageSrc2: '/img/project/MacBookSynlab.webp',
+  imageSrc: '/img/project/MacBookSynlab.webp',
   description:
     'Synlab provide a wide range of medical tests and services through thier website e-commerce. Also expertise of the doctors and the medical staff. Test results are available online and you can order a sample for testing at home.',
   title: 'Synlab E-commerce Project',

@@ -93,7 +93,7 @@ const Hero = (): JSX.Element => {
           >
             Soft Transition To The WEB
           </h1>
-          <h6
+          <p
             ref={heroSubText}
             className="font-montserrat lg:text-2xl text-xl text-dark dark:text-light max-w-2xl opacity-0"
           >
@@ -101,7 +101,7 @@ const Hero = (): JSX.Element => {
             <span className="text-brand"> Your</span> Vision,
             <span className="text-brand"> Our </span>
             Expertise
-          </h6>
+          </p>
           <a href="#contactSection">
             <button
               ref={heroButton}
@@ -114,7 +114,7 @@ const Hero = (): JSX.Element => {
         <div className="col-start-2 col-end-4 row-start-1">
           <Image
             ref={heroImage}
-            src="/img/Macbook2.png"
+            src="/img/Macbook2.webp"
             width={2200}
             height={1750}
             priority

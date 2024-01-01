@@ -17,7 +17,7 @@ const Services = () => {
       description:
         'Elevate your online presence with our premier web development outsourcing service. Our skilled developers are dedicated to crafting dynamic, responsive websites that align with your business goals.',
       technology: 'React, Next.js, Firebase, AWS, HTML, CSS, Typescript, Strapi',
-      icon: '/img/service/webdev.png',
+      icon: '/img/service/webdev.jpg',
     },
     {
       id: '431das312',
@@ -26,7 +26,7 @@ const Services = () => {
       description:
         'Revolutionize your mobile presence with our cutting-edge mobile development outsourcing service. Our skilled developers are committed to crafting high-performance, user-friendly apps tailored to your unique needs.',
       technology: 'React Native, Expo, Firebase, AWS, Typescript',
-      icon: '/img/service/mobile.png',
+      icon: '/img/service/mobile.jpg',
     },
     {
       id: 'gas321as32',
@@ -35,7 +35,7 @@ const Services = () => {
       description:
         ' Our skilled designers are dedicated to bringing your vision to life, ensuring seamless and visually captivating digital interactions. Ready to transform your user interface? Contact us today for a journey of design innovation.',
       technology: 'Figma, Adobe XD, Adobe Photoshop, Adobe Illustrator',
-      icon: '/img/service/design.png',
+      icon: '/img/service/design.jpg',
     },
     {
       id: 'gas321as312',
@@ -43,7 +43,7 @@ const Services = () => {
       description:
         'Elevate your projects with our premier outsourcing service. Tap into top-tier developers committed to turning your vision into reality. Benefit from cost-effective solutions, flexible engagement models, and a client-centric approach.',
       technology: 'Front-End, Full-Stack',
-      icon: '/img/service/outsourcing.png',
+      icon: '/img/service/outsourcing.jpg',
     },
   ];
   return (
@@ -175,9 +175,9 @@ const ServiceItemMobile = ({
   }, []);
   return (
     <section ref={main} className="flex flex-col items-start justify-center w-full gap-5">
-      <h5 className="km-headline -translate-x-10 opacity-0 uppercase font-extrabold text-sm mb-5">
+      <span className="km-headline -translate-x-10 opacity-0 uppercase font-extrabold text-sm mb-5">
         {headline}
-      </h5>
+      </span>
       <div className="km-image -translate-x-10 opacity-0 relative w-44 aspect-square rounded-3xl">
         <Image
           src={icon}
@@ -287,10 +287,10 @@ const ServiceItem = ({
   }, []);
 
   return (
-    <div ref={main} className="flex flex-col items-start justify-center w-full gap-5">
-      <h5 className="km-headline -translate-x-10 opacity-0  uppercase font-extrabold text-sm mb-5">
+    <section ref={main} className="flex flex-col items-start justify-center w-full gap-5">
+      <span className="km-headline -translate-x-10 opacity-0  uppercase font-extrabold text-sm mb-5">
         {headline}
-      </h5>
+      </span>
       <div className="grid grid-cols-3 grid-rows-1 items-center justify-center">
         <div
           className={`km-image -translate-x-10 opacity-0  ${
@@ -304,7 +304,9 @@ const ServiceItem = ({
         <div
           className={`${
             reverse ? 'col-start-2 col-end-4 row-start-1' : 'col-start-1 col-end-3 row-start-1'
-          } z-10 flex flex-col gap-5 justify-center items-start lg:backdrop-blur-xl lg:p-5 lg:rounded-3xl xl:p-10 xl:rounded-3xl`}
+          } z-10 flex flex-col gap-5 justify-center items-start lg:backdrop-blur-xl lg:p-5 lg:rounded-3xl xl:p-10 xl:rounded-3xl
+           bg-brand bg-clip-padding backdrop-filter bg-opacity-20 border border-lightest
+          `}
         >
           <Title className="km-title -translate-x-10 opacity-0 mb-2">{title}</Title>
           <Description className="km-desc -translate-x-10 opacity-0 mb-4">
@@ -316,6 +318,6 @@ const ServiceItem = ({
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };

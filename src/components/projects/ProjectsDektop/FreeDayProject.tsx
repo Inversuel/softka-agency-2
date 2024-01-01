@@ -70,7 +70,7 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
           <Title>FreeDay Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="max-w-2xl">
                 An AI app that provides automation for chats and emails, it also provides a
                 <span className="text-brand"> dashboard</span> for the company to manage the
@@ -78,7 +78,7 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
               </Description>
             </div>
             <div className="flex flex-col gap-3">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={TagsArray} containerClassName="z-10" />
             </div>
           </div>
@@ -90,7 +90,7 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
           ref={imageRef}
           width={1000}
           height={875}
-          src="/img/freeDayApp.jpg"
+          src="/img/freeDayApp.webp"
           alt="FreeDay Project Mockup"
           className="rounded-3xl transform-3d scale-0 opacity-0"
         />

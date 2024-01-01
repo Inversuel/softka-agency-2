@@ -63,13 +63,13 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
           <Title className="">Christian Hypnobirthing Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Description</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
               <Description className="flex flex-col max-w-xl">
                 Scripture-based breathing exercises, visualizations, positive affirmations, and more
               </Description>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
-              <p className="font-semibold text-7xl opacity-10 -mb-10">Technologies</p>
+              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
               <Tags array={arrayTags} containerClassName="z-10" />
             </div>
           </div>
@@ -81,7 +81,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
           ref={iphoneRef}
           width={1339}
           height={2716}
-          src="/img/chb-mockup.png"
+          src="/img/chb-mockup.webp"
           alt="Christian hypnobirth Project Mockup"
           className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
         />
@@ -89,7 +89,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
           ref={iphoneRef2}
           width={1339}
           height={2716}
-          src="/img/chb-mockup2.png"
+          src="/img/chb-mockup2.webp"
           alt="Christian hypnobirth Project Mockup"
           className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 opacity-0"
         />
