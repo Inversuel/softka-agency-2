@@ -133,6 +133,7 @@ export const CHBProjectMobile = (): JSX.Element => {
           href="projects/chb"
           text="Learn More"
           className="scale-110 opacity-0 translate-x-20"
+          aria-label="Learn more about CHB"
         />
       </div>
       <div className="w-screen relative">

@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import Spinner from './UI/Spinner';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 interface ContactFormProps {
   showBack?: boolean;
@@ -21,7 +21,7 @@ const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
   const [phone, setPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
-  const twMergeClass = twMerge(
+  const twMergeClass = cn(
     'relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center',
     className
   );

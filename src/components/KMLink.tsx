@@ -1,6 +1,6 @@
+import { cn } from '@/lib/utils';
 import Link, { LinkProps } from 'next/link';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 interface KMLink extends LinkProps {
   children: React.ReactNode;
@@ -9,7 +9,7 @@ interface KMLink extends LinkProps {
 }
 
 const KMLink = ({ children, refProp, className, ...props }: KMLink): JSX.Element => {
-  const mergeClass = twMerge(
+  const mergeClass = cn(
     'text-lightest font-montserrat font-bold text-lg hover:text-brand transition-colors ease-in duration-200',
     className
   );

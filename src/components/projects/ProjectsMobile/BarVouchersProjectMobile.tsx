@@ -134,6 +134,7 @@ export const BarVouchersProjectMobile = (): JSX.Element => {
           href="projects/barvoucher"
           text="Learn More"
           className="opacity-0 translate-x-20"
+          aria-label="Learn More About BarVoucher"
         />
       </div>
       <div className="relative w-full h-[30rem] md:h-[40rem] grid place-items-center -mt-10">

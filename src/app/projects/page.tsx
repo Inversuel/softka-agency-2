@@ -32,7 +32,7 @@ const ProjectsGrid = () => {
                   href={project.href}
                   className="border rounded-3xl px-7 py-3 self-end hover:bg-brand hover:text-lightest hover:border-black transition duration-500"
                 >
-                  Learn more
+                  Learn more about {project.title}
                 </Link>
               </div>
             </div>

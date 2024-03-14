@@ -2,17 +2,12 @@ import { useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
 import LinkButton from '../../UI/LinkButton';
-import gsap from 'gsap';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 
-interface FreeDayProjectProps {
-  triggerTimeline?: gsap.core.Tween;
-}
-
-export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.Element => {
+export const FreeDayProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
   const TagsArray =
@@ -31,41 +26,11 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
       'max-glare': 0.2,
       scale: 1.04,
     });
-    const context = gsap.context(() => {
-      gsap.to(imageRef.current, {
-        duration: 0.3,
-        ease: 'power3.inOut',
-        opacity: 1,
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-        scrollTrigger: {
-          trigger: textRef.current,
-          containerAnimation: triggerTimeline,
-          start: '0% 50%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-      gsap.to(textRef.current, {
-        duration: 0.3,
-        ease: 'power3.inOut',
-        opacity: 1,
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-        scrollTrigger: {
-          trigger: textRef.current,
-          containerAnimation: triggerTimeline,
-          start: '0% 99%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-    });
-    return () => context.revert();
-  }, [triggerTimeline]);
+  }, []);
 
   return (
     <section className="h-screen w-screen p-12 flex flex-shrink-0 itemScroll">
-      <div
-        ref={textRef}
-        className="flex flex-col p-11 gap-10 justify-center items-start relative cm-clip-path-left-0"
-      >
+      <div ref={textRef} className="flex flex-col p-11 gap-10 justify-center items-start relative">
         <div>
           <Title>FreeDay Project</Title>
           <div className="flex flex-col gap-4">
@@ -92,7 +57,7 @@ export const FreeDayProject = ({ triggerTimeline }: FreeDayProjectProps): JSX.El
           height={875}
           src="/img/freeDayApp.webp"
           alt="FreeDay Project Mockup"
-          className="rounded-3xl transform-3d scale-0 opacity-0"
+          className="rounded-3xl transform-3d"
         />
       </div>
     </section>

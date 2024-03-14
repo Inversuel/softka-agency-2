@@ -1,6 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 
 interface LogoProps {
   className: string;
@@ -8,7 +8,7 @@ interface LogoProps {
 }
 
 const Logo = ({ className, refProp }: LogoProps): JSX.Element => {
-  const mergeClass = twMerge('flex gap-2 items-center', className);
+  const mergeClass = cn('flex gap-2 items-center', className);
 
   return (
     <div ref={refProp} className={mergeClass}>

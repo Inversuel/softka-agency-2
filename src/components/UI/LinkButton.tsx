@@ -1,6 +1,6 @@
 import React from 'react';
 import Link, { LinkProps } from 'next/link';
-import { twMerge } from 'tailwind-merge';
+import { cn } from '@/lib/utils';
 interface LinkButtonProps extends LinkProps {
   href: string;
   text: string;
@@ -9,7 +9,7 @@ interface LinkButtonProps extends LinkProps {
 const LinkButton = ({ href, text, ...props }: LinkButtonProps): JSX.Element => {
   return (
     <div className="relative w-60">
-      <Link href={href} {...props}>
+      <Link href={href} {...props} >
         <button className="py-4 px-10 rounded-3xl text-2xl font-semibold text-lightest flex flex-row gap-2 items-center border border-lightest hover:scale-105">
           {text}
         </button>
@@ -33,7 +33,7 @@ export const LinkButtonMobile = ({
   refProp,
   className,
 }: LinkButtonMobileProps): JSX.Element => {
-  const classMerge = twMerge('relative w-52', className);
+  const classMerge = cn('relative w-52', className);
   return (
     <div ref={refProp} className={classMerge}>
       <Link href={href}>

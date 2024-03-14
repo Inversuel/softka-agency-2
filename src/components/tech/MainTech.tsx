@@ -38,7 +38,7 @@ const MainTech = (): JSX.Element => {
   };
 
   return (
-    <article className="flex flex-col gap-14 z-[2] p-4 md:p-12 lg:p-20 backdrop-blur-lg rounded-3xl h-full w-full bg-brand bg-clip-padding backdrop-filter bg-opacity-10">
+    <article className="flex flex-col gap-14 z-[2] p-4 md:p-8 lg:p-10 backdrop-blur-lg rounded-3xl w-full bg-brand bg-clip-padding backdrop-filter bg-opacity-10">
       {topTech.map((tech, i) => {
         return (
           <ul
@@ -60,7 +60,7 @@ const MainTech = (): JSX.Element => {
                       checkIfLogo(item.title) ? 'grayscale invert' : ''
                     }`}
                   />
-                  <p className="row-start-3 text-lg md:text-xl lg:text-xl font-bold">
+                  <p className="row-start-3 text-lg font-bold">
                     {item.title}
                   </p>
                 </li>

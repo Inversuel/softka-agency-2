@@ -1,6 +1,6 @@
+import { cn } from '@/lib/utils';
 import Image from 'next/image';
 import React, { AriaAttributes, useMemo } from 'react';
-import { twMerge } from 'tailwind-merge';
 
 const iconMap = {};
 
@@ -49,7 +49,7 @@ export const Icon = React.forwardRef<HTMLImageElement, IconProps>(
       <Container
         {...rest}
         {...containerProps}
-        className={twMerge('leading-none flex-none relative', className)}
+        className={cn('leading-none flex-none relative', className)}
       >
         <Image
           data-testid={id}

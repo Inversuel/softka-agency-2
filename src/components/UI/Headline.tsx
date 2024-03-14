@@ -1,10 +1,10 @@
 'use client';
 
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+import { cn } from '@/lib/utils';
 gsap.registerPlugin(ScrollTrigger);
 
 interface Props {
@@ -14,8 +14,8 @@ interface Props {
 
 const Headline = ({ children, className }: Props): JSX.Element => {
   const textRef = React.useRef(null);
-  const twMergeClass = twMerge(
-    'font-montserrat md:text-5xl lg:text-7xl text-3xl font-bold opacity-25 mb-10 lg:mb-28',
+  const twMergeClass = cn(
+    'font-montserrat md:text-3xl lg:text-5xl text-2xl font-bold opacity-25 mb-10 lg:mb-28',
     className
   );
 

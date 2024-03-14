@@ -1,17 +1,12 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import LinkButton from '../../UI/LinkButton';
-import gsap from 'gsap';
 import Tags from '@/components/UI/Tags';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';
 
-interface CHBProjectProps {
-  triggerTimeline?: gsap.core.Tween;
-}
 
-export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element => {
+export const CHBProject = (): JSX.Element => {
   const iphoneRef = useRef<HTMLImageElement>(null);
   const iphoneRef2 = useRef<HTMLImageElement>(null);
   const textContainer = useRef<HTMLDivElement>(null);
@@ -20,44 +15,11 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
     ','
   );
 
-  useIsomorphicLayoutEffect(() => {
-    const context = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: textContainer.current,
-          containerAnimation: triggerTimeline,
-          start: 'start 80%',
-          end: '80% 80%',
-          toggleActions: 'play none none reverse',
-        },
-      });
-      tl.to(iphoneRef.current, {
-        scale: 0.4,
-        duration: 0.5,
-        opacity: 1,
-        ease: 'power3.inOut',
-        zIndex: 11,
-      });
-      tl.to(iphoneRef2.current, {
-        scale: 0.7,
-        duration: 0.5,
-        opacity: 1,
-        ease: 'power3.inOut',
-      });
-      tl.to(textContainer.current, {
-        duration: 0.5,
-        ease: 'power3.inOut',
-        opacity: 1,
-        alignItems: 'flex-start',
-      });
-    });
-    return () => context.revert();
-  }, [triggerTimeline]);
   return (
     <section className="h-screen w-screen relative p-12 flex flex-row items-center flex-shrink-0 itemScroll">
       <div
         ref={textContainer}
-        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-center opacity-0"
+        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-center"
       >
         <div>
           <Title className="">Christian Hypnobirthing Project</Title>
@@ -74,7 +36,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
             </div>
           </div>
         </div>
-        <LinkButton href="projects/chb" text="Learn More" />
+        <LinkButton href="projects/chb" text="Learn More" aria-label="Learn more about CHB" />
       </div>
       <div className="w-full h-1/2 relative">
         <Image
@@ -83,7 +45,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
           height={2716}
           src="/img/chb-mockup.webp"
           alt="Christian hypnobirth Project Mockup"
-          className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0"
+          className="rounded-3xl transform-3d z-[11] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-50"
         />
         <Image
           ref={iphoneRef2}
@@ -91,7 +53,7 @@ export const CHBProject = ({ triggerTimeline }: CHBProjectProps): JSX.Element =>
           height={2716}
           src="/img/chb-mockup2.webp"
           alt="Christian hypnobirth Project Mockup"
-          className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 opacity-0"
+          className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2"
         />
       </div>
     </section>

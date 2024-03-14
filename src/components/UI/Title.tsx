@@ -1,5 +1,5 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 interface TitleProps {
   children: React.ReactNode;
@@ -8,8 +8,8 @@ interface TitleProps {
 }
 
 const Title = ({ children, className, refProp }: TitleProps) => {
-  const classMerge = twMerge(
-    'text-2xl lg:text-3xl xl:text-5xl font-bold font-montserrat',
+  const classMerge = cn(
+    'text-xl lg:text-2xl xl:text-3xl font-bold font-montserrat',
     className
   );
   return (

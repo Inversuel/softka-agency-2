@@ -1,8 +1,8 @@
 import { DM_Sans, Montserrat, Poppins } from 'next/font/google';
 import './globals.css';
 import Nav from '@/components/navigation/Nav';
-// import { ReactLenis } from '@studio-freight/react-lenis';
 import { Metadata } from 'next';
+import { ThemeProvider } from '@/components/theme-provider';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -32,13 +32,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
     <html
       lang="en"
       className={`${montserrat.variable} ${poppins.variable} ${dm_sans.variable}`}
-      suppressHydrationWarning={true}
+      suppressHydrationWarning
     >
       <body className={`overflow-x-hidden relative`}>
         <Nav />
-        {/* <ReactLenis root> */}
-        {children}
-        {/* </ReactLenis> */}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
         <footer></footer>
       </body>
     </html>

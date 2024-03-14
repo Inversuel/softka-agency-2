@@ -1,17 +1,11 @@
 import { useRef } from 'react';
 import Image from 'next/image';
 import LinkButton from '../../UI/LinkButton';
-import gsap from 'gsap';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 import Title from '@/components/UI/Title';
 import Description from '@/components/UI/Description';
 import Tags from '@/components/UI/Tags';
 
-interface BarVouchersProjectProps {
-  triggerTimeline?: gsap.core.Tween;
-}
-
-export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps): JSX.Element => {
+export const BarVouchersProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
   const imageRef2 = useRef<HTMLImageElement>(null);
   const textRef = useRef<HTMLDivElement>(null);
@@ -19,50 +13,6 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
   const tagsArray =
     'React Native, React Hook Form,React Query, Stripe, Typescript, Figma, Firebase'.split(',');
 
-  useIsomorphicLayoutEffect(() => {
-    const context = gsap.context(() => {
-      gsap.to(imageRef.current, {
-        duration: 1,
-        ease: 'power3.inOut',
-        opacity: 1,
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-        scrollTrigger: {
-          trigger: textRef.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '1',
-      });
-      gsap.to(imageRef2.current, {
-        duration: 1,
-        ease: 'power3.inOut',
-        opacity: 1,
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-        scrollTrigger: {
-          trigger: imageRef2.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '2',
-      });
-      gsap.to(textRef.current, {
-        duration: 1,
-        ease: 'power3.inOut',
-        opacity: 1,
-        clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
-        scrollTrigger: {
-          trigger: imageRef2.current,
-          containerAnimation: triggerTimeline,
-          start: 'start center',
-          toggleActions: 'play none none reverse',
-        },
-        id: '3',
-      });
-    }, main);
-    return () => context.revert();
-  }, [triggerTimeline]);
   return (
     <section
       ref={main}
@@ -75,12 +25,12 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
           height={875}
           src="/img/barVoucherIphone.webp"
           alt="Barvoucher Project Mockup"
-          className="rounded-3xl transform-3d hover:z-10 opacity-0 cm-clip-path-left-0"
+          className="rounded-3xl transform-3d hover:z-10"
         />
       </div>
       <div
         ref={textRef}
-        className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg opacity-0 cm-clip-path-left-0"
+        className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg"
       >
         <div>
           <Title>Bar Voucher Project</Title>
@@ -100,7 +50,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
             </div>
           </div>
         </div>
-        <LinkButton href="projects/barvoucher" text="Learn More" />
+        <LinkButton href="projects/barvoucher" text={`Learn More`} aria-label="Learn More About BarVoucher" />
       </div>
       <div className="col-start-4 col-end-6 row-start-1 w-full h-full grid place-items-center">
         <Image
@@ -109,7 +59,7 @@ export const BarVouchersProject = ({ triggerTimeline }: BarVouchersProjectProps)
           height={875}
           src="/img/barVoucherIphone2.webp"
           alt="Barvoucher Project Mockup"
-          className="rounded-3xl transform-3d z-10 opacity-0 cm-clip-path-left-0"
+          className="rounded-3xl transform-3d z-10"
         />
       </div>
     </section>

@@ -1,5 +1,5 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 interface DescriptionProps {
   className?: string;
@@ -7,7 +7,7 @@ interface DescriptionProps {
 }
 
 const Description = ({ children, className }: DescriptionProps) => {
-  const classMerge = twMerge('text-left lg:text-lg xl:text-xl', className);
+  const classMerge = cn('text-left lg:text-lg xl:text-xl', className);
   return <p className={classMerge}>{children}</p>;
 };
 

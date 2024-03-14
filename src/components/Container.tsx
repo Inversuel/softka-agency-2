@@ -1,5 +1,5 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 interface ContainerProps {
   children: React.ReactNode;
@@ -8,7 +8,7 @@ interface ContainerProps {
 }
 
 export const Container = ({ children, className, refProp }: ContainerProps): JSX.Element => {
-  const twMergeClass = twMerge('p-24 w-full', className);
+  const twMergeClass = cn('p-24 w-full', className);
   return (
     <section ref={refProp} className={twMergeClass}>
       {children}

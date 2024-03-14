@@ -1,5 +1,5 @@
+import { cn } from '@/lib/utils';
 import React from 'react';
-import { twMerge } from 'tailwind-merge';
 
 interface TagsProps {
   array: string[];
@@ -8,8 +8,8 @@ interface TagsProps {
 }
 
 const Tags = ({ array, containerClassName, pClassName }: TagsProps) => {
-  const containerClass = twMerge('flex gap-3 flex-wrap w-full', containerClassName);
-  const pClass = twMerge(
+  const containerClass = cn('flex gap-3 flex-wrap w-full', containerClassName);
+  const pClass = cn(
     'text-sm lg:text-lg xl:text-xl font-semibold text-lightest bg-dark rounded-3xl py-1 px-4 ',
     pClassName
   );

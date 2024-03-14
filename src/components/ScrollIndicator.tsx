@@ -1,8 +1,8 @@
 import { FaArrowDown } from 'react-icons/fa';
-import { twMerge } from 'tailwind-merge';
 import React, { useRef } from 'react';
 import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
 import gsap from 'gsap';
+import { cn } from '@/lib/utils';
 
 interface Props {
   className?: string;
@@ -11,7 +11,7 @@ interface Props {
 
 const ScrollIndicator = ({ className, refProp }: Props): JSX.Element => {
   const arrowRef = useRef(null);
-  const classMerge = twMerge('w-full flex justify-center items-end relative', className);
+  const classMerge = cn('w-full flex justify-center items-end relative', className);
 
   useIsomorphicLayoutEffect(() => {
     const ctx = gsap.context(() => {
