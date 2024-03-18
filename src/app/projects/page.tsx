@@ -1,4 +1,4 @@
-import Headline from '@/components/UI/Headline';
+import Headline from '@/components/ui/headline';
 import React from 'react';
 import { ProjectData } from '@/projectData';
 import Link from 'next/link';

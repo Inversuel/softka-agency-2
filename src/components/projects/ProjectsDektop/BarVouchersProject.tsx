@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import Image from 'next/image';
-import LinkButton from '../../UI/LinkButton';
-import Title from '@/components/UI/Title';
-import Description from '@/components/UI/Description';
-import Tags from '@/components/UI/Tags';
+import Title from '@/components/ui/title';
+import Description from '@/components/ui/description';
+import Tags from '@/components/ui/tags';
+import Link from 'next/link';
 
 export const BarVouchersProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -50,7 +50,9 @@ export const BarVouchersProject = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <LinkButton href="projects/barvoucher" text={`Learn More`} aria-label="Learn More About BarVoucher" />
+        <Link href="projects/barvoucher" aria-label="Learn More About BarVoucher">
+          Learn More
+        </Link>
       </div>
       <div className="col-start-4 col-end-6 row-start-1 w-full h-full grid place-items-center">
         <Image

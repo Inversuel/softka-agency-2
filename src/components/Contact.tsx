@@ -1,9 +1,9 @@
 'use client';
 
-import Headline from './UI/Headline';
+import Headline from './ui/headline';
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
-import Spinner from './UI/Spinner';
+import Spinner from './ui/spinner';
 import toast from 'react-hot-toast';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';

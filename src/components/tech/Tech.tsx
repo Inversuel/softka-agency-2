@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from '../Container';
-import Headline from '../UI/Headline';
+import Headline from '../ui/headline';
 import MainTech from './MainTech';
 
 const Tech = (): JSX.Element => {

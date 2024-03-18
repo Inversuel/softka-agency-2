@@ -1,6 +1,6 @@
-import Description from '@/components/UI/Description';
-import Tags from '@/components/UI/Tags';
-import Title from '@/components/UI/Title';
+import Description from '@/components/ui/description';
+import Tags from '@/components/ui/tags';
+import Title from '@/components/ui/title';
 import React, { ReactNode } from 'react';
 import Image from 'next/image';
 import NextBreadcrumb from '@/components/breadcrumbs/NextBreadcrumb';

@@ -1,26 +1,17 @@
-import { useRef } from 'react';
 import Image from 'next/image';
-import LinkButton from '../../UI/LinkButton';
-import Tags from '@/components/UI/Tags';
-import Title from '@/components/UI/Title';
-import Description from '@/components/UI/Description';
-
+import Tags from '@/components/ui/tags';
+import Title from '@/components/ui/title';
+import Description from '@/components/ui/description';
+import Link from 'next/link';
 
 export const CHBProject = (): JSX.Element => {
-  const iphoneRef = useRef<HTMLImageElement>(null);
-  const iphoneRef2 = useRef<HTMLImageElement>(null);
-  const textContainer = useRef<HTMLDivElement>(null);
-
   const arrayTags = 'React Native, React Hook Form,React Query, Typescript, Figma, Firebase'.split(
     ','
   );
 
   return (
-    <section className="h-screen w-screen relative p-12 flex flex-row items-center flex-shrink-0 itemScroll">
-      <div
-        ref={textContainer}
-        className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-center"
-      >
+    <section className="h-screen w-screen relative p-12 flex flex-row items-center">
+      <div className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-center">
         <div>
           <Title className="">Christian Hypnobirthing Project</Title>
           <div className="flex flex-col gap-4">
@@ -36,24 +27,24 @@ export const CHBProject = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <LinkButton href="projects/chb" text="Learn More" aria-label="Learn more about CHB" />
+        <Link href="projects/chb" aria-label="Learn more about CHB">
+          Learn more
+        </Link>
       </div>
       <div className="w-full h-1/2 relative">
         <Image
-          ref={iphoneRef}
-          width={1339}
-          height={2716}
+          width={446}
+          height={906}
           src="/img/chb-mockup.webp"
           alt="Christian hypnobirth Project Mockup"
-          className="rounded-3xl transform-3d z-[11] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-50"
+          className="rounded-3xl transform-3d z-[11] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-auto h-[500px]"
         />
         <Image
-          ref={iphoneRef2}
-          width={1339}
-          height={2716}
+          width={446}
+          height={906}
           src="/img/chb-mockup2.webp"
           alt="Christian hypnobirth Project Mockup"
-          className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2"
+          className="rounded-3xl transform-3d z-10 absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-auto h-[500px]"
         />
       </div>
     </section>

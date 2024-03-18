@@ -1,11 +1,10 @@
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
-import LinkButton from '../../UI/LinkButton';
-import Title from '@/components/UI/Title';
-import Description from '@/components/UI/Description';
-import Tags from '@/components/UI/Tags';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+import Title from '@/components/ui/title';
+import Description from '@/components/ui/description';
+import Tags from '@/components/ui/tags';
+import Link from 'next/link';
 
 export const FreeDayProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -15,7 +14,7 @@ export const FreeDayProject = (): JSX.Element => {
       ','
     );
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     if (!imageRef.current || !textRef.current) return;
     VanillaTilt.init(imageRef.current, {
       max: 15,
@@ -29,7 +28,7 @@ export const FreeDayProject = (): JSX.Element => {
   }, []);
 
   return (
-    <section className="h-screen w-screen p-12 flex flex-shrink-0 itemScroll">
+    <section className="w-screen p-12 flex">
       <div ref={textRef} className="flex flex-col p-11 gap-10 justify-center items-start relative">
         <div>
           <Title>FreeDay Project</Title>
@@ -48,7 +47,9 @@ export const FreeDayProject = (): JSX.Element => {
             </div>
           </div>
         </div>
-        <LinkButton href="/projects/freeday" text="Learn More" />
+        <Link href="/projects/freeday" aria-label="Learn more about the freeday project">
+          Learn more
+        </Link>
       </div>
       <div className="w-full h-full grid place-items-center">
         <Image

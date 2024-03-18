@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
 import { cn } from '@/lib/utils';
-
+import Link from 'next/link';
+import { LogoSvg } from '@/svg';
 interface LogoProps {
   className: string;
   refProp?: React.MutableRefObject<null | HTMLDivElement>;
@@ -12,14 +12,14 @@ const Logo = ({ className, refProp }: LogoProps): JSX.Element => {
 
   return (
     <div ref={refProp} className={mergeClass}>
-      <Image width={40} height={40} src="/img/logo.png" alt="" className="h-auto" />
-      <a href="/">
-        <h6 className="hover-underline-animation font-montserrat text-2xl text-darkest dark:text-lightest leading-5 font-bold">
-          Softly
-        </h6>
-      </a>
+      <Link href="/" aria-label="link to the home page">
+        <LogoSvg className="bg-foreground hover:bg-background text-background fill-background hover:fill-foreground stroke-background hover:stroke-foreground duration-200 w-14 h-14 p-2 rounded-full" />
+      </Link>
     </div>
   );
 };
 
 export default Logo;
+{
+  /* <LogoSvg className="" /> */
+}

@@ -4,11 +4,12 @@ import Hero from '@/components/Hero';
 import { useEffect } from 'react';
 import { Toaster } from 'react-hot-toast';
 import dynamic from 'next/dynamic';
+import Nav from '@/components/navigation/Nav';
 
 const WhyUs = dynamic(() => import('@/components/WhyUs'), {
   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 });
-const Services = dynamic(() => import('@/components/Services'), {
+const Services = dynamic(() => import('@/components/services'), {
   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 });
 const ProjectsList = dynamic(
@@ -47,20 +48,19 @@ export default function Home(): JSX.Element {
   }, []);
 
   return (
-    <main
-      id="main"
-      className="relative bg-light dark:bg-black flex min-h-screen flex-col overflow-x-hidden font-montserrat"
-    >
+    <main id="main" className="relative flex min-h-screen flex-col overflow-x-hidden bg-background">
       <Toaster />
+      <Nav />
       <Hero />
       <Services />
-      <div className="relative w-fit lg:block hidden">
-        <ProjectsList />
+      <ProjectsList />
+
+      {/* <div className="relative w-fit lg:block hidden">
       </div>
-      <ProjectsListMobile />
+      <ProjectsListMobile /> */}
       <WhyUs />
-      <Tech />
-      <Contact />
+      {/* <Tech /> */}
+      {/* <Contact /> */}
     </main>
   );
 }
