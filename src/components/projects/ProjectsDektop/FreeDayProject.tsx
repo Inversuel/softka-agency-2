@@ -1,3 +1,6 @@
+'use client';
+
+
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
@@ -5,6 +8,7 @@ import Title from '@/components/ui/title';
 import Description from '@/components/ui/description';
 import Tags from '@/components/ui/tags';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const FreeDayProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -28,7 +32,13 @@ export const FreeDayProject = (): JSX.Element => {
   }, []);
 
   return (
-    <section className="w-screen p-12 flex">
+    <motion.section
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -10, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="h-[650px] p-12 flex"
+    >
       <div ref={textRef} className="flex flex-col p-11 gap-10 justify-center items-start relative">
         <div>
           <Title>FreeDay Project</Title>
@@ -61,6 +71,6 @@ export const FreeDayProject = (): JSX.Element => {
           className="rounded-3xl transform-3d"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };

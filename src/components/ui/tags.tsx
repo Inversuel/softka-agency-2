@@ -14,7 +14,7 @@ const Tags = ({ array, containerClassName, pClassName }: TagsProps) => {
   return (
     <div className={containerClass}>
       {array.map((tech) => (
-        <Typography variant="h4" type="carola" key={tech} className={pClass}>
+        <Typography variant="h4" type="denike" key={tech} className={pClass}>
           {tech}
         </Typography>
       ))}

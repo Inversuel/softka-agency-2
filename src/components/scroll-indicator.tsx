@@ -1,6 +1,6 @@
-import { FaArrowDown } from 'react-icons/fa';
 import React from 'react';
 import { cn } from '@/lib/utils';
+import { ArrowDown } from 'lucide-react';
 
 interface Props {
   className?: string;
@@ -10,12 +10,11 @@ interface Props {
 const ScrollIndicator = ({ className, refProp }: Props): JSX.Element => {
   const classMerge = cn('w-full flex justify-center items-end relative', className);
 
-
   return (
     <div className={classMerge} ref={refProp}>
       <div className="border relative border-lightest rounded-3xl w-10 h-16 grid place-items-center">
         <div>
-          <FaArrowDown size={18} />
+          <ArrowDown size={18} />
         </div>
       </div>
     </div>

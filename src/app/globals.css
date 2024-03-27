@@ -49,7 +49,6 @@
   }
 }
 
-
 @layer base {
   * {
     @apply border-border;
@@ -57,10 +56,48 @@
   body {
     @apply bg-background text-foreground;
   }
+  .inverter-border {
+    position: relative;
+  }
+  .inverter-border::after,
+  .inverter-border::before {
+    --border-radius: 1rem;
+
+    position: absolute;
+    content: '';
+    width: var(--border-radius);
+    height: var(--border-radius);
+    right: 0;
+    border-radius: 100vw;
+    animation-duration: 0.2;
+    transition: opacity 200ms;
+  }
+
+  .inverter-border::after {
+    left: calc(var(--border-radius) * -1);
+    bottom: 0;
+    border-radius: 0 0 100vw 0;
+    box-shadow: 5px 5px 0 5px hsl(var(--muted));
+    transition: opacity 200ms;
+  }
+
+  .inverter-border::before {
+    bottom: 0;
+    right: calc(var(--border-radius) * -1);
+    border-radius: 0 0 0 100vw;
+    box-shadow: -5px 5px 0 5px hsl(var(--muted));
+    transition: opacity 200ms;
+  }
 }
 @layer utilities {
   .hover-underline-animation {
     @apply inline-block relative after:content-[''] after:absolute after:w-full after:h-0.5 after:bg-foreground after:origin-bottom-right after:transition after:ease-out after:scale-x-0 after:left-0 after:bottom-0 hover:after:origin-bottom-left hover:after:scale-x-100;
+  }
+  .hover-show-icon {
+    display: none;
+  }
+  .hover-parent-icon:hover .hover-show-icon {
+    display: block;
   }
 }
 

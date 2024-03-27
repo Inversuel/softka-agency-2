@@ -20,9 +20,10 @@ const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
   const [message, setMessage] = useState('');
   const [phone, setPhone] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [isOk, setIsOk] = useState('');
 
   const twMergeClass = cn(
-    'relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center',
+    'relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center container',
     className
   );
 
@@ -49,6 +50,7 @@ const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setIsLoading(true);
+    if(isOk !== "") return;
 
     const templateParams = {
       name: name,
@@ -113,6 +115,9 @@ const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
         onSubmit={handleSubmit}
         className="flex flex-col gap-4 3xl:self-center lg:grid lg:grid-cols-2 lg:row-auto 3xl:grid-cols-1 w-full"
       >
+        <div className="hidden">
+          <input className="" value={isOk} onChange={(e) => setIsOk(e.target.value)} />
+        </div>
         <input
           placeholder="Your Name"
           className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"

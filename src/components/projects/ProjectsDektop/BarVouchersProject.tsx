@@ -1,26 +1,26 @@
-import { useRef } from 'react';
+'use client';
+
 import Image from 'next/image';
 import Title from '@/components/ui/title';
 import Description from '@/components/ui/description';
 import Tags from '@/components/ui/tags';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 export const BarVouchersProject = (): JSX.Element => {
-  const imageRef = useRef<HTMLImageElement>(null);
-  const imageRef2 = useRef<HTMLImageElement>(null);
-  const textRef = useRef<HTMLDivElement>(null);
-  const main = useRef<HTMLDivElement>(null);
   const tagsArray =
     'React Native, React Hook Form,React Query, Stripe, Typescript, Figma, Firebase'.split(',');
 
   return (
-    <section
-      ref={main}
-      className="h-screen w-screen p-12 grid grid-cols-5 flex-shrink-0 itemScroll"
+    <motion.section
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -10, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="h-[650px] p-12 grid grid-cols-5 flex-shrink-0"
     >
       <div className="w-full h-full col-start-1 col-end-3 row-start-1 grid place-items-center">
         <Image
-          ref={imageRef2}
           width={1000}
           height={875}
           src="/img/barVoucherIphone.webp"
@@ -28,10 +28,7 @@ export const BarVouchersProject = (): JSX.Element => {
           className="rounded-3xl transform-3d hover:z-10"
         />
       </div>
-      <div
-        ref={textRef}
-        className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg"
-      >
+      <div className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg">
         <div>
           <Title>Bar Voucher Project</Title>
           <div className="flex flex-col gap-4">
@@ -56,7 +53,6 @@ export const BarVouchersProject = (): JSX.Element => {
       </div>
       <div className="col-start-4 col-end-6 row-start-1 w-full h-full grid place-items-center">
         <Image
-          ref={imageRef}
           width={1000}
           height={875}
           src="/img/barVoucherIphone2.webp"
@@ -64,6 +60,6 @@ export const BarVouchersProject = (): JSX.Element => {
           className="rounded-3xl transform-3d z-10"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };
