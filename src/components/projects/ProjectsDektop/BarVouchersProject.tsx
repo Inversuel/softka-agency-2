@@ -6,6 +6,8 @@ import Description from '@/components/ui/description';
 import Tags from '@/components/ui/tags';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Typography } from '@/components/ui/typography';
+import { buttonVariants } from '@/components/ui/button';
 
 export const BarVouchersProject = (): JSX.Element => {
   const tagsArray =
@@ -33,7 +35,7 @@ export const BarVouchersProject = (): JSX.Element => {
           <Title>Bar Voucher Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
+              <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">Description</Typography>
               <Description className="max-w-xl">
                 <span className="text-brand">BarVoucher</span> Your gateway to exclusive discounts
                 at premier bars and restaurants across your city. App provides a filter of bars,
@@ -42,12 +44,14 @@ export const BarVouchersProject = (): JSX.Element => {
               </Description>
             </div>
             <div className="flex flex-col gap-3 max-w-lg">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
+              <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">Technologies</Typography>
               <Tags array={tagsArray} containerClassName="z-10" />
             </div>
           </div>
         </div>
-        <Link href="projects/barvoucher" aria-label="Learn More About BarVoucher">
+        <Link href="projects/barvoucher"
+          className={buttonVariants({ variant: "default", size: 'lg' })}
+          aria-label="Learn More About BarVoucher">
           Learn More
         </Link>
       </div>

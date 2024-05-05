@@ -28,9 +28,9 @@ const ProjectsList = dynamic(
 //     loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 //   }
 // );
-// const Tech = dynamic(() => import('@/components/tech/Tech'), {
-//   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
-// });
+const Tech = dynamic(() => import('@/components/tech/Tech'), {
+  loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
+});
 const Contact = dynamic(() => import('@/components/Contact'), {
   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 });
@@ -59,7 +59,7 @@ export default function Home(): JSX.Element {
       </div>
       <ProjectsListMobile /> */}
       {/* <WhyUs /> */}
-      {/* <Tech /> */}
+      <Tech />
       <Contact />
     </main>
   );

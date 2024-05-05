@@ -30,7 +30,7 @@ export const ContainerScroll = ({ src }: { src: string }) => {
 
   return (
     <div
-      className="h-[60rem] flex items-center justify-center relative p-2 md:p-10"
+      className="h-[60rem] flex items-center justify-center relative p-2 md:p-10 animate-ease-in-out animate-fade-up animate-delay-700"
       ref={containerRef}
     >
       <div

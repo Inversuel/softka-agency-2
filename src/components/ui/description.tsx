@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
+import { Typography } from './typography';
 
 interface DescriptionProps {
   className?: string;
@@ -8,7 +9,9 @@ interface DescriptionProps {
 
 const Description = ({ children, className }: DescriptionProps) => {
   const classMerge = cn('text-left lg:text-lg xl:text-xl', className);
-  return <p className={classMerge}>{children}</p>;
+  return (
+    <Typography variant="p" type="poppins" className={classMerge}>{children}</Typography>
+  );
 };
 
 export default Description;

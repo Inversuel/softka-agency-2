@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { cn } from '@/lib/utils';
 import { Typography } from './typography';
 
-type Card = {
+export type Card = {
   id: number;
   content: JSX.Element | React.ReactNode | string;
   className: string;
@@ -13,36 +13,44 @@ type Card = {
   header: string;
 };
 
-export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
-  const [selected, setSelected] = useState<Card | null>(null);
-  const [lastSelected, setLastSelected] = useState<Card | null>(null);
+type LayoutGridType = {
+  selected: Card | null;
+  setSelected: React.Dispatch<React.SetStateAction<Card | null>>;
+  lastSelected: Card | null;
+  setLastSelected: React.Dispatch<React.SetStateAction<Card | null>>;
+  cards: Card[];
+  handleOutsideClick: () => void;
+  handleClick: (cards: Card) => void;
+};
 
-  const handleClick = (card: Card) => {
-    setLastSelected(selected);
-    setSelected(card);
-  };
-
-  const handleOutsideClick = () => {
-    setLastSelected(selected);
-    setSelected(null);
-  };
-
+export const LayoutGrid = ({
+  cards,
+  selected,
+  handleClick,
+  handleOutsideClick,
+  lastSelected,
+}: LayoutGridType) => {
   return (
     <div className="w-full h-full p-10 grid grid-cols-1 md:grid-cols-3  max-w-7xl mx-auto gap-4 ">
       {cards.map((card, i) => (
         <div key={i} className={cn(card.className, '')}>
           <motion.div
             transition={{
-              duration: 0.3,
+              duration: 0.4,
               delay: 0.1 * i,
+              ease: 'easeInOut',
             }}
             initial={{
-              scale: 0,
-              opacity: 1,
+              scale: 0.85,
+              opacity: 0,
+              translateX: i === 1 ? -40 : i === 2 ? 0 : i === 3 ? 40 : 0,
+              translateY: i === 1 ? 0 : i === 2 ? 40 : i === 3 ? 0 : -40,
             }}
             whileInView={{
               scale: 1,
               opacity: 1,
+              translateX: 0,
+              translateY: 0,
             }}
             onClick={() => handleClick(card)}
             className={cn(
@@ -95,7 +103,7 @@ const BlurImage = ({ card, isSelected }: { card: Card; isSelected: boolean }) =>
         width="500"
         onLoad={() => setLoaded(true)}
         className={cn(
-          'object-cover object-top absolute inset-0 h-full w-full transition duration-200 brightness-50',
+          'object-cover object-top absolute inset-0 h-full w-full transition duration-200 brightness-50 hover:scale-110 overflow-hidden',
           loaded ? 'blur-none' : 'blur-md'
         )}
         alt="thumbnail"

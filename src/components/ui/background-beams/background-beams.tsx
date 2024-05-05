@@ -59,7 +59,7 @@ export const BackgroundBeams = React.memo(({ className }: { className?: string }
   return (
     <div
       className={cn(
-        'absolute  h-full w-full inset-0  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center',
+        'absolute h-full w-full inset-0 z-[1]  [mask-size:40px] [mask-repeat:no-repeat] flex items-center justify-center',
         className
       )}
     >
@@ -77,6 +77,7 @@ export const BackgroundBeams = React.memo(({ className }: { className?: string }
           strokeOpacity="0.05"
           strokeWidth="0.5"
         ></path>
+
         {paths.map((path, index) => (
           <motion.path
             key={`path-` + index}
@@ -90,11 +91,13 @@ export const BackgroundBeams = React.memo(({ className }: { className?: string }
           {paths.map((path, index) => (
             <motion.linearGradient
               id={`linearGradient-${index}`}
-              x1="100%"
-              x2="100%"
-              y1="100%"
-              y2="100%"
               key={`gradient-${index}`}
+              initial={{
+                x1: '0%',
+                x2: '0%',
+                y1: '0%',
+                y2: '0%',
+              }}
               animate={{
                 x1: ['0%', '100%'],
                 x2: ['0%', '95%'],

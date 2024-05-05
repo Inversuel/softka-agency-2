@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
+import Footer from '@/components/footer';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -55,7 +56,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
         >
           {/* <Nav /> */}
           {children}
-          <footer></footer>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

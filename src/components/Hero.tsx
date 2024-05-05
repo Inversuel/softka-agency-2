@@ -25,22 +25,6 @@ const Hero = (): JSX.Element => {
           })}
           words="Transforming Digital Dreams into Seamless Realities. Your Vision, Our Expertise"
         />
-        {/* <div>
-          <Typography
-            variant="h2"
-            type="milston"
-            className="lowercase max-w-xl animate-fade-down animate-duration-500 animate-delay-550 animate-ease-in-out"
-          >
-            Transforming Digital Dreams into Seamless Realities.
-          </Typography>
-          <Typography
-            variant="h2"
-            type="milston"
-            className="lowercase max-w-xl animate-fade-down animate-duration-500 animate-delay-550 animate-ease-in-out"
-          >
-            Your Vision, Our Expertise
-          </Typography> */}
-        {/* </div> */}
       </div>
       <ContainerScroll src="/img/project/freedayalone.webp" />
     </section>

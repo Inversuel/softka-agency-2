@@ -1,6 +1,5 @@
 'use client';
 
-
 import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
@@ -9,6 +8,8 @@ import Description from '@/components/ui/description';
 import Tags from '@/components/ui/tags';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { buttonVariants } from '@/components/ui/button';
+import { Typography } from '@/components/ui/typography';
 
 export const FreeDayProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -44,7 +45,9 @@ export const FreeDayProject = (): JSX.Element => {
           <Title>FreeDay Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
+              <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">
+                Description
+              </Typography>
               <Description className="max-w-2xl">
                 An AI app that provides automation for chats and emails, it also provides a
                 <span className="text-brand"> dashboard</span> for the company to manage the
@@ -52,13 +55,19 @@ export const FreeDayProject = (): JSX.Element => {
               </Description>
             </div>
             <div className="flex flex-col gap-3">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
+              <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">
+                Technologies
+              </Typography>
               <Tags array={TagsArray} containerClassName="z-10" />
             </div>
           </div>
         </div>
-        <Link href="/projects/freeday" aria-label="Learn more about the freeday project">
-          Learn more
+        <Link
+          href="/projects/freeday"
+          className={buttonVariants({ variant: 'default', size: 'lg' })}
+          aria-label="Learn more about the freeday project"
+        >
+          <Typography className="text-white">Learn More</Typography>
         </Link>
       </div>
       <div className="w-full h-full grid place-items-center">

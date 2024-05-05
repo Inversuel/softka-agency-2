@@ -17,7 +17,6 @@ export const ProjectsList = (): JSX.Element => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      console.log(selected);
       if (selected >= projects.length - 1) {
         setSelected(0);
       } else {
@@ -30,7 +29,7 @@ export const ProjectsList = (): JSX.Element => {
   return (
     <div className="h-screen max-h-screen px-10 py-5 container">
       <div className="rounded-lg w-full h-full relative flex flex-col justify-center">
-        <div className="rounded-lg flex flex-col border border-white/30">
+        <div className="rounded-lg flex flex-col border dark:border-white/30 border-black/30">
           <ul className="flex flex-row pt-2 px-8">
             <div className="flex flex-row gap-3 -ml-1 mr-4 justify-center items-center hover-parent-icon">
               <span className="rounded-full bg-red-500 w-4 h-4 grid place-items-center">
