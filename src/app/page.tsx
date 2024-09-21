@@ -9,7 +9,7 @@ import Nav from '@/components/navigation/Nav';
 // const WhyUs = dynamic(() => import('@/components/WhyUs'), {
 //   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 // });
-const Services = dynamic(() => import('@/components/services'), {
+const Services = dynamic(() => import('@/components/Services'), {
   loading: () => <div className="h-screen w-screen bg-black text-lightest"></div>,
 });
 const ProjectsList = dynamic(
