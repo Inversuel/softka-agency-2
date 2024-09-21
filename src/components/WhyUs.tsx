@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
-import Headline from './ui/headline';
-import Title from './ui/title';
-import Description from './ui/description';
+import Headline from './UI/headline';
+import Title from './UI/title';
+import Description from './UI/description';
 
 const WhyUs = (): JSX.Element => {
   const main = useRef(null);

@@ -1,4 +1,4 @@
-import { StickyScroll } from "./ui/sticky-scroll-reveal";
+import { StickyScroll } from "./UI/sticky-scroll-reveal";
 import Image from "next/image";
 
 const content = [

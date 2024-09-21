@@ -1,8 +1,8 @@
 import React from 'react';
-import { Typography, typographyVariants } from './ui/typography';
-import { Spotlight } from './ui/spotlight';
-import { ContainerScroll } from './ui/container-scroll-animation';
-import { TextGenerateEffect } from './ui/text-generate-effect';
+import { Typography, typographyVariants } from './UI/typography';
+import { Spotlight } from './UI/spotlight';
+import { ContainerScroll } from './UI/container-scroll-animation';
+import { TextGenerateEffect } from './UI/text-generate-effect';
 
 const Hero = (): JSX.Element => {
   return (

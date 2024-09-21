@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography } from './ui/typography';
+import { Typography } from './UI/typography';
 import { Earth } from 'lucide-react';
 
 const Footer = () => {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import Tags from './ui/tags';
-import { Card, LayoutGrid } from './ui/layout-grid';
-import { Typography } from './ui/typography';
+import Tags from './UI/tags';
+import { Card, LayoutGrid } from './UI/layout-grid';
+import { Typography } from './UI/typography';
 
 const Services = () => {
   const [selected, setSelected] = useState<Card | null>(null);

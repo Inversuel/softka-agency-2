@@ -1,7 +1,7 @@
 import React from 'react';
 import Logo from '../Logo';
 import Link from 'next/link';
-import { Typography } from '../ui/typography';
+import { Typography } from '../UI/typography';
 import { ThemeToggle } from '../theme-toggle';
 
 export const DesktopNav = (): JSX.Element => {

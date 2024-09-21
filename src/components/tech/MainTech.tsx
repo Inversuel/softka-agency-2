@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Typography } from '../ui/typography';
+import { Typography } from '../UI/typography';
 import { motion } from 'framer-motion';
 
 const MainTech = (): JSX.Element => {

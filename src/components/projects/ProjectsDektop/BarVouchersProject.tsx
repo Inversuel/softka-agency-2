@@ -1,13 +1,13 @@
 'use client';
 
 import Image from 'next/image';
-import Title from '@/components/ui/title';
-import Description from '@/components/ui/description';
-import Tags from '@/components/ui/tags';
+import Title from '@/components/UI/title';
+import Description from '@/components/UI/description';
+import Tags from '@/components/UI/tags';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Typography } from '@/components/ui/typography';
-import { buttonVariants } from '@/components/ui/button';
+import { Typography } from '@/components/UI/typography';
+import { buttonVariants } from '@/components/UI/button';
 
 export const BarVouchersProject = (): JSX.Element => {
   const tagsArray =

@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import Title from '@/components/ui/title';
-import Description from '@/components/ui/description';
-import Tags from '@/components/ui/tags';
+import Title from '@/components/UI/title';
+import Description from '@/components/UI/description';
+import Tags from '@/components/UI/tags';
 import Link from 'next/link';
 
 export const CHBProjectMobile = (): JSX.Element => {

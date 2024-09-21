@@ -1,15 +1,15 @@
 'use client';
 
-import Headline from './ui/headline';
+import Headline from './UI/headline';
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
-import Spinner from './ui/spinner';
+import Spinner from './UI/spinner';
 import toast from 'react-hot-toast';
-import { Input, TextArea } from './ui/input';
+import { Input, TextArea } from './UI/input';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
-import { Typography } from './ui/typography';
+import { Typography } from './UI/typography';
 import Link from 'next/link';
 
 const schema = z.object({
