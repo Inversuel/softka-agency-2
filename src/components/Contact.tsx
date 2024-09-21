@@ -77,7 +77,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="h-screen w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex flex-col items-center justify-center">
+    <div className="h-screen w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex flex-col items-center justify-center p-2 sm:p-0">
       <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background)))]"></div>
       <Headline className="3xl:text-9xl max-w-3xl mx-auto self-start z-[2]">Contact Us</Headline>
       <div className="flex flex-col md:flex-row gap-5 w-full max-w-3xl">
@@ -150,7 +150,7 @@ const ContactForm = () => {
           </Link>
           <Link href="mailto:acc.karolmaj@gmail.com">
             <Typography className="hover-underline-animation" variant="h3" type="denike">
-              Email: acc.karolmaj@gmail.com
+              Email: softkadev@gmail.com
             </Typography>
           </Link>
         </div>

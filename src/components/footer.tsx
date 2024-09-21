@@ -4,9 +4,9 @@ import { Earth } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground h-[50dvh] p-2 md:p-8 lg:p-20">
+    <footer className="bg-foreground sm:h-[30dvh] p-2 md:p-8 lg:p-20">
       <div className="flex flex-col md:flex-row mb-5 container">
-        <div className="w-1/2 ">
+        {/* <div className="w-1/2 ">
           <Typography variant="h2" type="denike" className="text-background mb-4">
             Services
           </Typography>
@@ -57,11 +57,11 @@ const Footer = () => {
               </Typography>
             </li>
           </ul>
-        </div>
-        <div className="w-1/2 flex flex-col gap-5">
+        </div> */}
+        <div className="w-full flex flex-col gap-5">
           <ul>
             <li>
-              <Typography variant="h2" type="denike" className="text-background  mb-4">
+              <Typography variant="h2" type="denike" className="text-background mb-4">
                 Location base
               </Typography>
             </li>
@@ -71,7 +71,7 @@ const Footer = () => {
                 type="denike"
                 className="text-muted-foreground cursor-pointer hover:text-background duration-200"
               >
-                Gdańsk, Poland
+                Poland
               </Typography>
             </li>
           </ul>

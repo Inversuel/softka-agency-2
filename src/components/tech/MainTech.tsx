@@ -17,11 +17,24 @@ const MainTech = (): JSX.Element => {
     { title: 'Aws', logo: '/logo/logo-aws.svg', x: 20, y: -100 },
     { title: 'Google Cloud', logo: '/logo/logo-gcp.svg', x: -120, y: 140 },
     { title: '.Net', logo: '/logo/logo-net.svg', x: -40, y: 100 },
-    { title: 'Nest.js', logo: 'https://nestjs.com/logo-small.ede75a6b.svg', x: 0, y: 40 },
+    { title: 'Nest.js', logo: 'https://nestjs.com/logo-small-gradient.76616405.svg', x: 0, y: 40 },
     { title: 'Strapi', logo: '/logo/logo-strapi.svg', x: 120, y: 140 },
     { title: 'Wordpress', logo: '/logo/logo-wp.svg', x: 180, y: 80 },
     { title: 'Shopify', logo: '/logo/logo-shopify.svg', x: 240, y: 0 },
-  ];
+  ]; 
+
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
 
   const checkIfLogo = (title: string): boolean => {
     if (
@@ -52,13 +65,14 @@ const MainTech = (): JSX.Element => {
       </motion.div>
       <ul className="flex flex-row flex-wrap gap-2 md:gap-6 items-center justify-center">
         {topTech.map((item, i) => {
+          const multiplayer = isMobile ? 0.2 : 1;
           return (
             <motion.li
               key={i + 999}
               className="relative grid place-items-center items-center min-h-[116px] min-w-[116px]"
               transition={{ delay: 0.05 * i }}
               initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1, x: item.x, y: item.y }}
+              whileInView={{ opacity: 1, x: item.x * multiplayer, y: item.y* multiplayer }}
             >
               <Image
                 src={item.logo}

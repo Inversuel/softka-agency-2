@@ -10,13 +10,13 @@ import Nav from '@/components/navigation/Nav';
 //   loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
 // });
 const Services = dynamic(() => import('@/components/services'), {
-  loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
+  loading: () => <div className="h-screen w-screen bg-black text-lightest"></div>,
 });
 const ProjectsList = dynamic(
   () =>
     import('@/components/projects/ProjectsDektop/ProjectComponent').then((mod) => mod.ProjectsList),
   {
-    loading: () => <div className="h-screen w-screen bg-black text-lightest">Loading...</div>,
+    loading: () => <div className="h-screen w-screen bg-black text-lightest"></div>,
   }
 );
 // const ProjectsListMobile = dynamic(

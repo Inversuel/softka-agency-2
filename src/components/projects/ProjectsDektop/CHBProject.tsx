@@ -20,10 +20,10 @@ export const CHBProject = (): JSX.Element => {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-[650px] relative p-12 flex flex-row items-center"
+      className="h-[650px] relative p-2 sm:p-12 flex flex-row items-center"
     >
-      <div className="flex flex-col p-11 gap-10 xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-start">
-        <div>
+      <div className="flex flex-col p-2 sm:p-11 gap-10 w-full sm:w-[750px] xl:min-w-[750px] 3xl:min-w-[1240px] justify-center items-start">
+        <div className="w-full">
           <Title className="">Christian Hypnobirthing Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
@@ -42,7 +42,7 @@ export const CHBProject = (): JSX.Element => {
           Learn more
         </Link>
       </div>
-      <div className="w-full h-1/2 relative">
+      <div className="hidden lg:block w-full h-1/2 relative">
         <Image
           width={446}
           height={906}

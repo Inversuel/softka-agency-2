@@ -27,10 +27,10 @@ export const ProjectsList = (): JSX.Element => {
   }, [projects.length, selected]);
 
   return (
-    <div className="h-screen max-h-screen px-10 py-5 container">
+    <div className="h-screen max-h-screen px-2 sm:px-10 py-1 sm:py-5 container">
       <div className="rounded-lg w-full h-full relative flex flex-col justify-center">
         <div className="rounded-lg flex flex-col border dark:border-white/30 border-black/30">
-          <ul className="flex flex-row pt-2 px-8">
+          <ul className="hidden sm:flex flex-row pt-2 px-8">
             <div className="flex flex-row gap-3 -ml-1 mr-4 justify-center items-center hover-parent-icon">
               <span className="rounded-full bg-red-500 w-4 h-4 grid place-items-center">
                 <X size={13} color="black" fontWeight={600} className="hover-show-icon" />

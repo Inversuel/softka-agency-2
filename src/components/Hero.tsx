@@ -7,7 +7,7 @@ import { TextGenerateEffect } from './ui/text-generate-effect';
 const Hero = (): JSX.Element => {
   return (
     <section className="relative 2xl:max-w-8xl 2xl:self-center">
-      <Spotlight className="-top-10 left-[31rem]" fill="hsl(var(--foreground))" />
+      <Spotlight className="-top-52 left-10 sm:-top-10 sm:left-[31rem]" fill="hsl(var(--foreground))" />
       <div className="lg:pt-12 lg:px-24 md:pt-8 md:px-12 p-4 w-full flex flex-col items-center text-center gap-10">
         <Typography
           variant="h1"

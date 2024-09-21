@@ -19,9 +19,9 @@ export const BarVouchersProject = (): JSX.Element => {
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
       transition={{ duration: 0.2 }}
-      className="h-[650px] p-12 grid grid-cols-5 flex-shrink-0"
+      className="h-[650px] p-2 sm:p-12 grid grid-cols-5 flex-shrink-0"
     >
-      <div className="w-full h-full col-start-1 col-end-3 row-start-1 grid place-items-center">
+      <div className=" w-full h-full col-start-1 col-end-3 row-start-1 hidden lg:grid place-items-center">
         <Image
           width={1000}
           height={875}
@@ -30,8 +30,8 @@ export const BarVouchersProject = (): JSX.Element => {
           className="rounded-3xl transform-3d hover:z-10"
         />
       </div>
-      <div className="col-start-2 col-end-5 row-start-1 flex flex-col p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg">
-        <div>
+      <div className="col-start-1 col-end-6 lg:col-start-2 lg:col-end-5 row-start-1 flex flex-col p-2 lg:p-11 gap-10 justify-center items-start 2xl:items-center backdrop-blur-lg">
+        <div className="w-full">
           <Title>Bar Voucher Project</Title>
           <div className="flex flex-col gap-4">
             <div className="flex flex-col">
@@ -55,7 +55,7 @@ export const BarVouchersProject = (): JSX.Element => {
           Learn More
         </Link>
       </div>
-      <div className="col-start-4 col-end-6 row-start-1 w-full h-full grid place-items-center">
+      <div className="col-start-4 col-end-6 row-start-1 w-full h-full hidden lg:grid place-items-center">
         <Image
           width={1000}
           height={875}
