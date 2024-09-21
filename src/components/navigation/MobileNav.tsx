@@ -1,6 +1,6 @@
 import React from 'react';
-import KMLink from '../KMLink';
 import Logo from '../Logo';
+import Link from 'next/link';
 
 export const MobileNav = (): JSX.Element => {
   return (
@@ -22,19 +22,19 @@ export const MobileNav = (): JSX.Element => {
           className="fixed inset-0 -ml-[24px] -mt-10 p-10 bg-dark origin-[0%_0%] -translate-x-full transition-menu ease-menu-ease flex flex-col items-center gap-8 justify-center"
         >
           <li className="delay-[2s] px-0 py-2.5">
-            <KMLink className="text-3xl" href="/">
+            <Link className="text-3xl" href="/">
               Homes
-            </KMLink>
+            </Link>
           </li>
           <li className="delay-[2s] px-0 py-2.5">
-            <KMLink className="text-3xl" href="/projects">
+            <Link className="text-3xl" href="/projects">
               Projects
-            </KMLink>
+            </Link>
           </li>
           <li className="delay-[2s] px-0 py-2.5">
-            <KMLink className="text-3xl" href="#contact">
+            <Link className="text-3xl" href="#contact">
               Contact
-            </KMLink>
+            </Link>
           </li>
           <li className="delay-[2s] px-0 py-2.5">
             <button className="py-3 px-12 bg-brand text-lightest rounded-3xl hover:scale-105 hover:shadow-xl">

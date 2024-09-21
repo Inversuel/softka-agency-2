@@ -1,8 +1,9 @@
 import { DM_Sans, Montserrat, Poppins } from 'next/font/google';
+import localFont from 'next/font/local';
 import './globals.css';
-import Nav from '@/components/navigation/Nav';
 import { Metadata } from 'next';
 import { ThemeProvider } from '@/components/theme-provider';
+import Footer from '@/components/footer';
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -21,6 +22,18 @@ const montserrat = Montserrat({
   display: 'swap',
   variable: '--montserrat-font',
 });
+const milston = localFont({
+  src: '../fonts/milston/Milston.otf',
+  variable: '--milston-font',
+});
+const denike = localFont({
+  src: '../fonts/denike/Denike.otf',
+  variable: '--denike-font',
+});
+const carola = localFont({
+  src: '../fonts/carola/Carola.otf',
+  variable: '--carola-font',
+});
 
 export const metadata: Metadata = {
   title: 'Softka Agency',
@@ -31,20 +44,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }):
   return (
     <html
       lang="en"
-      className={`${montserrat.variable} ${poppins.variable} ${dm_sans.variable}`}
+      className={`${montserrat.variable} ${poppins.variable} ${dm_sans.variable} ${milston.variable} ${denike.variable} ${carola.variable}`}
       suppressHydrationWarning
     >
-      <body className={`overflow-x-hidden relative`}>
-        <Nav />
+      <body className="overflow-x-hidden relative">
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+          {/* <Nav /> */}
           {children}
+          <Footer />
         </ThemeProvider>
-        <footer></footer>
       </body>
     </html>
   );

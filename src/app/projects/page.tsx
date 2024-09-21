@@ -1,4 +1,4 @@
-import Headline from '@/components/UI/Headline';
+import Headline from '@/components/ui/headline';
 import React from 'react';
 import { ProjectData } from '@/projectData';
 import Link from 'next/link';
@@ -31,8 +31,9 @@ const ProjectsGrid = () => {
                 <Link
                   href={project.href}
                   className="border rounded-3xl px-7 py-3 self-end hover:bg-brand hover:text-lightest hover:border-black transition duration-500"
+                  aria-label={`Learn more about ${project.title}`}
                 >
-                  Learn more about {project.title}
+                  Learn more
                 </Link>
               </div>
             </div>

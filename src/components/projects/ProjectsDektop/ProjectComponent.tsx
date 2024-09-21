@@ -1,44 +1,85 @@
 'use client';
 
-import React, { useRef } from 'react';
-import { SynLabProject, MayonesProject } from '@/components/projects/ProjectsDektop/ProjectsData';
+import React, { useEffect, useState } from 'react';
 import { CHBProject } from './CHBProject';
 import { BarVouchersProject } from './BarVouchersProject';
 import { FreeDayProject } from './FreeDayProject';
-import gsap from 'gsap';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
-import { EmptyScroll } from './EmptyScroll';
+import { motion } from 'framer-motion';
+import { Baby, Database, Beef, X, MoveDiagonal, Minus } from 'lucide-react';
 
 export const ProjectsList = (): JSX.Element => {
-  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [selected, setSelected] = useState<number>(0);
+  const projects = [
+    { component: <FreeDayProject />, label: 'FreeDay', icon: <Database /> },
+    { component: <BarVouchersProject />, label: 'BarVoucher', icon: <Beef /> },
+    { component: <CHBProject />, label: 'CHB Project', icon: <Baby /> },
+  ];
 
-  useIsomorphicLayoutEffect(() => {
-    const ctx = gsap.context(() => {
-      const sections = gsap.utils.toArray('.itemScroll');
-      gsap.to(sections, {
-        xPercent: -100 * (sections.length - 1),
-        ease: 'none',
-        scrollTrigger: {
-          trigger: scrollerRef.current,
-          start: 'top top',
-          pin: scrollerRef.current,
-          pinnedContainer: scrollerRef.current,
-          scrub: true,
-          end: () => '+=' + scrollerRef.current?.offsetWidth,
-        },
-      });
-    }, scrollerRef);
-    return () => ctx.revert();
-  }, []);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (selected >= projects.length - 1) {
+        setSelected(0);
+      } else {
+        setSelected((prev) => prev + 1);
+      }
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [projects.length, selected]);
 
   return (
-    <div ref={scrollerRef} className="w-fit flex flex-nowrap h-screen overflow-hidden">
-      <EmptyScroll />
-      <FreeDayProject />
-      <BarVouchersProject />
-      <CHBProject />
-      <SynLabProject />
-      <MayonesProject />
+    <div className="h-screen max-h-screen px-2 sm:px-10 py-1 sm:py-5 container">
+      <div className="rounded-lg w-full h-full relative flex flex-col justify-center">
+        <div className="rounded-lg flex flex-col border dark:border-white/30 border-black/30">
+          <ul className="hidden sm:flex flex-row pt-2 px-8">
+            <div className="flex flex-row gap-3 -ml-1 mr-4 justify-center items-center hover-parent-icon">
+              <span className="rounded-full bg-red-500 w-4 h-4 grid place-items-center">
+                <X size={13} color="black" fontWeight={600} className="hover-show-icon" />
+              </span>
+              <span className="rounded-full bg-yellow-500 w-4 h-4 grid place-items-center">
+                <Minus size={13} color="black" fontWeight={600} className="hover-show-icon" />
+              </span>
+              <span className="rounded-full bg-green-500 w-4 h-4 grid place-items-center">
+                <MoveDiagonal
+                  size={13}
+                  color="black"
+                  fontWeight={600}
+                  className="hover-show-icon"
+                />
+              </span>
+            </div>
+            {projects.map((item, index) => (
+              <li
+                key={index}
+                className={`w-full flex flex-row gap-4 h-12 rounded-t-md items-center justify-center relative duration-200 hover:transition
+                ${index === selected ? 'cursor-default' : 'cursor-pointer'}
+                ${index === selected ? 'bg-muted inverter-border' : ''}`}
+                onClick={() => setSelected(index)}
+              >
+                {index !== selected ? (
+                  <div className="hover:bg-primary/50 opacity-45 hover:opacity-100 flex flex-row gap-4 rounded-t-md items-center justify-center absolute inset-2 rounded-md">
+                    {item.icon} {`${item.label}`}
+                  </div>
+                ) : (
+                  <>
+                    {item.icon} {`${item.label}`}
+                  </>
+                )}
+                {index === selected ? (
+                  <motion.div className="underline" layoutId="underline" />
+                ) : null}
+              </li>
+            ))}
+          </ul>
+          {/* <AnimatePresence mode="wait"> */}
+          <div
+            className="bg-muted rounded-lg"
+            key={selected !== null ? projects[selected]?.label : 'empty'}
+          >
+            {selected !== null ? projects[selected]?.component : ''}
+          </div>
+          {/* </AnimatePresence> */}
+        </div>
+      </div>
     </div>
   );
 };

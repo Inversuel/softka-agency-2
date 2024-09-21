@@ -1,11 +1,15 @@
-import { useRef } from 'react';
+'use client';
+
+import { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import VanillaTilt from 'vanilla-tilt';
-import LinkButton from '../../UI/LinkButton';
-import Title from '@/components/UI/Title';
-import Description from '@/components/UI/Description';
-import Tags from '@/components/UI/Tags';
-import { useIsomorphicLayoutEffect } from '@/helpers/isomorphicEffect';
+import Title from '@/components/ui/title';
+import Description from '@/components/ui/description';
+import Tags from '@/components/ui/tags';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
+import { buttonVariants } from '@/components/ui/button';
+import { Typography } from '@/components/ui/typography';
 
 export const FreeDayProject = (): JSX.Element => {
   const imageRef = useRef<HTMLImageElement>(null);
@@ -15,7 +19,7 @@ export const FreeDayProject = (): JSX.Element => {
       ','
     );
 
-  useIsomorphicLayoutEffect(() => {
+  useEffect(() => {
     if (!imageRef.current || !textRef.current) return;
     VanillaTilt.init(imageRef.current, {
       max: 15,
@@ -29,28 +33,45 @@ export const FreeDayProject = (): JSX.Element => {
   }, []);
 
   return (
-    <section className="h-screen w-screen p-12 flex flex-shrink-0 itemScroll">
-      <div ref={textRef} className="flex flex-col p-11 gap-10 justify-center items-start relative">
-        <div>
-          <Title>FreeDay Project</Title>
-          <div className="flex flex-col gap-4">
-            <div className="flex flex-col">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Description</span>
-              <Description className="max-w-2xl">
-                An AI app that provides automation for chats and emails, it also provides a
-                <span className="text-brand"> dashboard</span> for the company to manage the
-                information and the <span className="text-brand">AI</span>.
-              </Description>
-            </div>
-            <div className="flex flex-col gap-3">
-              <span className="font-semibold text-7xl opacity-10 -mb-10">Technologies</span>
-              <Tags array={TagsArray} containerClassName="z-10" />
-            </div>
+    <motion.section
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      exit={{ y: -10, opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      className="h-full sm:h-[650px] p-2 sm:p-12 flex flex-col sm:flex-row"
+    >
+      <div
+        ref={textRef}
+        className="flex flex-col w-full p-2 sm:p-11 gap-10 justify-center items-start relative"
+      >
+        <Title>FreeDay Project</Title>
+        <div className="flex flex-col gap-4 w-full">
+          <div className="flex flex-col">
+            <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">
+              Description
+            </Typography>
+            <Description className="max-w-2xl">
+              An AI app that provides automation for chats and emails, it also provides a
+              <span className="text-brand"> dashboard</span> for the company to manage the
+              information and the <span className="text-brand">AI</span>.
+            </Description>
+          </div>
+          <div className="flex flex-col gap-3">
+            <Typography variant="mutedText" className="font-semibold text-7xl opacity-5 -mb-10">
+              Technologies
+            </Typography>
+            <Tags array={TagsArray} containerClassName="z-10" />
           </div>
         </div>
-        <LinkButton href="/projects/freeday" text="Learn More" />
+        <Link
+          href="/projects/freeday"
+          className={buttonVariants({ variant: 'default', size: 'lg' })}
+          aria-label="Learn more about the freeday project"
+        >
+          <Typography className="text-white">Learn More</Typography>
+        </Link>
       </div>
-      <div className="w-full h-full grid place-items-center">
+      <div className="hidden lg:grid w-full h-full place-items-center">
         <Image
           ref={imageRef}
           width={1000}
@@ -60,6 +81,6 @@ export const FreeDayProject = (): JSX.Element => {
           className="rounded-3xl transform-3d"
         />
       </div>
-    </section>
+    </motion.section>
   );
 };

@@ -1,55 +1,46 @@
 'use client';
 
-import Headline from './UI/Headline';
+import Headline from './ui/headline';
 import emailjs from '@emailjs/browser';
 import React, { useState } from 'react';
-import Spinner from './UI/Spinner';
+import Spinner from './ui/spinner';
 import toast from 'react-hot-toast';
+import { Input, TextArea } from './ui/input';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import { Typography } from './ui/typography';
 import Link from 'next/link';
-import { cn } from '@/lib/utils';
 
-interface ContactFormProps {
-  showBack?: boolean;
-  className?: string;
-}
+const schema = z.object({
+  name: z
+    .string()
+    .min(5, { message: 'Name must be longer than 5.' })
+    .max(50, { message: 'Name is to long' }),
+  email: z.string().email(),
+  budget: z.string().optional(),
+  message: z.string().max(400, { message: 'Message is to long' }).optional(),
+  phone: z.string().optional(),
+});
 
-const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [budget, setBudget] = useState('');
-  const [message, setMessage] = useState('');
-  const [phone, setPhone] = useState('');
+type FormType = z.infer<typeof schema>;
+
+const ContactForm = () => {
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormType>({
+    resolver: zodResolver(schema),
+  });
   const [isLoading, setIsLoading] = useState(false);
+  const [isOk, setIsOk] = useState('');
 
-  const twMergeClass = cn(
-    'relative w-screen h-screen 3xl:max-w-8xl 3xl:self-center px-4 md:px-12 lg:px-24 flex flex-col justify-center',
-    className
-  );
-
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setName(event.target.value);
-  };
-
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setEmail(event.target.value);
-  };
-
-  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setPhone(event.target.value);
-  };
-
-  const handleBudgetChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setBudget(event.target.value);
-  };
-
-  const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setMessage(event.target.value);
-  };
-
-  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
+  const onSubmit: SubmitHandler<FormType> = async (data: FormType) => {
     setIsLoading(true);
-
+    if (isOk !== '') return;
+    const { budget, email, message, name, phone } = data;
     const templateParams = {
       name: name,
       email: email,
@@ -81,87 +72,90 @@ const ContactForm = ({ showBack = false, className }: ContactFormProps) => {
       })
       .finally(() => {
         setIsLoading(false);
-        setName('');
-        setEmail('');
-        setBudget('');
-        setMessage('');
-        setPhone('');
+        reset();
       });
   };
 
   return (
-    <section id="contactSection" className={twMergeClass}>
-      {showBack && (
-        <Link
-          href="/"
-          prefetch
-          className="flex flex-row items-center justify-start gap-4 my-7 text-xl hover-underline-animation"
+    <div className="h-screen w-full bg-background dark:bg-dot-white/[0.2] bg-dot-black/[0.2] relative flex flex-col items-center justify-center p-2 sm:p-0">
+      <div className="absolute pointer-events-none inset-0 flex items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_20%,hsl(var(--background)))]"></div>
+      <Headline className="3xl:text-9xl max-w-3xl mx-auto self-start z-[2]">Contact Us</Headline>
+      <div className="flex flex-col md:flex-row gap-5 w-full max-w-3xl">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="z-[2] flex flex-col gap-4 3xl:self-center w-full"
         >
-          <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M11 17l-5-5m0 0l5-5m-5 5h12"
+          <div className="hidden">
+            <input
+              className=""
+              value={isOk}
+              onChange={(e) => setIsOk(e.target.value)}
+              id={''}
+              placeholder={''}
             />
-          </svg>
-          Go back
-        </Link>
-      )}
-      <Headline className="3xl:text-9xl">Contact Us</Headline>
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-4 3xl:self-center lg:grid lg:grid-cols-2 lg:row-auto 3xl:grid-cols-1 w-full"
-      >
-        <input
-          placeholder="Your Name"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
-          type="text"
-          id="name"
-          value={name}
-          onChange={handleNameChange}
-          required
-        />
-        <input
-          type="email"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
-          placeholder="Email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <input
-          type="phone"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
-          placeholder="Phone Number"
-          id="phone"
-          value={phone}
-          onChange={handlePhoneChange}
-        />
-        <input
-          type="text"
-          className="bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark"
-          placeholder="Budget Range"
-          id="budget"
-          value={budget}
-          onChange={handleBudgetChange}
-        />
-        <textarea
-          placeholder="Project Description"
-          id="message"
-          className="lg:col-span-2 3xl:col-auto bg-transparent border border-dark text-dark dark:text-lightest text-lg 3xl:text-3xl rounded-xl focus:border-brand block w-full p-2.5 dark:placeholder-light placeholder-dark  3xl:h-40 3xl:p-4 3xl:pl-6"
-          value={message}
-          onChange={handleMessageChange}
-        />
-        <button
-          className="lg:col-span-2 3xl:col-auto text-lightest hover:bg-transparent hover:text-lightest hover:border-white hover:border-2 transition w-full text-xl font-extrabold bg-dark dark:bg-light border border-dark dark:text-dark rounded-xl focus:border-brand p-2.5 flex justify-center align-middle items-center 3xl:h-20"
-          type="submit"
-          disabled={isLoading}
-        >
-          {isLoading ? <Spinner /> : 'Submit'}
-        </button>
-      </form>
-    </section>
+          </div>
+          <div>
+            <Input placeholder="Your Name" id="name" {...register('name')} />
+            {errors.name?.message && (
+              <Typography variant="p" className="text-destructive">
+                {errors.name?.message}
+              </Typography>
+            )}
+          </div>
+          <div>
+            <Input placeholder="Email" id="email" {...register('email')} />
+            {errors.email?.message && (
+              <Typography variant="p" className="text-destructive">
+                {errors.email?.message}
+              </Typography>
+            )}
+          </div>
+          <div>
+            <Input placeholder="Phone Number" id="phone" {...register('phone')} />
+            {errors.phone?.message && (
+              <Typography variant="p" className="text-destructive">
+                {errors.phone?.message}
+              </Typography>
+            )}
+          </div>
+          <div>
+            <Input placeholder="Budget Range" id="budget" {...register('budget')} />
+            {errors.budget?.message && (
+              <Typography variant="p" className="text-destructive">
+                {errors.budget?.message}
+              </Typography>
+            )}
+          </div>
+          <div>
+            <TextArea placeholder="Project Description" id="message" {...register('message')} />
+            {errors.message?.message && (
+              <Typography variant="p" className="text-destructive">
+                {errors.message?.message}
+              </Typography>
+            )}
+          </div>
+          <button
+            className="lg:col-span-2 3xl:col-auto text-lightest hover:bg-transparent hover:text-lightest hover:border-foreground hover:border-2 transition w-full text-xl font-extrabold bg-dark dark:bg-light border border-dark dark:text-dark rounded-xl focus:border-brand p-2.5 flex justify-center align-middle items-center 3xl:h-20"
+            type="submit"
+            disabled={isLoading}
+          >
+            {isLoading ? <Spinner /> : 'Submit'}
+          </button>
+        </form>
+        <div className="flex flex-col gap-1 w-full">
+          <Link href="tel:+48691530536">
+            <Typography className="hover-underline-animation" variant="h3" type="denike">
+              Phone: +48 691-530-536
+            </Typography>
+          </Link>
+          <Link href="mailto:acc.karolmaj@gmail.com">
+            <Typography className="hover-underline-animation" variant="h3" type="denike">
+              Email: softkadev@gmail.com
+            </Typography>
+          </Link>
+        </div>
+      </div>
+    </div>
   );
 };
 
